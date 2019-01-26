@@ -87,11 +87,12 @@ enum class Square {
 
 }
 class Coordinate{
-    val x = 0
-    val y = 0
+    var x = 0
+    var y = 0
 
     constructor(x : Int,y: Int) {
-        println("Constructor")
+       this.x = x
+        this.y = y
     }
 }
 
