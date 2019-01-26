@@ -47,22 +47,27 @@ open class AlienFragment : Fragment() {
     }
 
     private fun nextWayPoint(waypointNumer: Int) {
+        var prog = (waypointNumer.toFloat())/waypoints.size.toFloat()
+        sendZ( prog)
+
         if (waypointNumer >= waypoints.size) {
             alienHitMe()
             return
         }
 
-        alien?.animate()!!.x(waypoints[waypointNumer].x.toScreenWidth).y(waypoints[waypointNumer].y.toScreenHeight).scaleY(startScale + waypointNumer * scaleStep).scaleX(startScale + waypointNumer * scaleStep).alpha(1f).setDuration(2000).withEndAction {
+        alien?.animate()!!.x(waypoints[waypointNumer].x.toScreenWidth).y(waypoints[waypointNumer].y.toScreenHeight).scaleY(startScale + waypointNumer * scaleStep).scaleX(startScale + waypointNumer * scaleStep).alpha(1f).setDuration(3000).withEndAction {
             this.waypointNumer++
             nextWayPoint(this.waypointNumer)
         }.start()
     }
 
+
+
     private fun alienHitMe() {
         Log.d("eeeeee","hit me ")
 
         alien?.animate()!!.y(3000f).setDuration(1000).withEndAction {
-            Log.d("eeeeee","hit me complet ")
+
             if (this is BFragment) {
                 (activity as OutActivity).nullVlue("alienBz")
             }
@@ -75,6 +80,17 @@ open class AlienFragment : Fragment() {
         }
     }
 
+    private fun sendZ(prog: Float) {
+        if (this is BFragment) {
+            (activity as OutActivity).sentZ("alienBz",prog)
+        }
+        if (this is CFragment) {
+            (activity as OutActivity).sentZ("alienCz",prog)
+        }
+        if (this is DFragment) {
+            (activity as OutActivity).sentZ("alienDz",prog)
+        }
+    }
 
 }
 
@@ -84,5 +100,5 @@ private val Int.toScreenWidth: Float
     }
 private val Int.toScreenHeight: Float
     get() {
-        return this / 100.toFloat() * AppObject.getScreenDimensions().y
+        return this / 100.toFloat() * AppObject.getScreenDimensions().y*0.7f
     }

@@ -30,13 +30,19 @@ class AFragment : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        reyma.setOnClickListener {  var i = Intent(activity, Puzzle::class.java)
+        reymabtn.setOnClickListener {
+            var i = Intent(activity, Puzzle::class.java)
             startActivity(i) }
 
 
     }
 
     fun setData(latestdataSnapshot: DataSnapshot?) {
+        if(latestdataSnapshot?.hasChild("hasElectricity")!! && (latestdataSnapshot?.child("hasElectricity").value as Boolean)){
+            reymabtn.visibility=View.GONE
+        }else{
+            reymabtn.visibility=View.VISIBLE
+        }
 
     }
 

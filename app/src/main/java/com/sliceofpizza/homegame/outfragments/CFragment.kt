@@ -1,22 +1,19 @@
 package com.sliceofpizza.homegame.outfragments
 
-import android.content.Context
-import android.net.Uri
+
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.betheres.krsreporting.AppObject
-import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.AlienHelper
 import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Coordinate
 import com.google.firebase.database.DataSnapshot
 
 import com.sliceofpizza.homegame.R
 import com.sliceofpizza.homegame.activities.OutActivity
 import kotlinx.android.synthetic.main.fragment_c.*
-import java.util.ArrayList
+import java.util.*
 
 class CFragment : AlienFragment() {
 
@@ -49,6 +46,13 @@ class CFragment : AlienFragment() {
 
     fun setData(latestdataSnapshot: DataSnapshot?) {
 
+    }
+
+    fun shoot() {
+        laser.visibility = View.VISIBLE
+        Handler().postDelayed({
+            laser.visibility = View.GONE
+        }, 1000)
     }
 
 }
