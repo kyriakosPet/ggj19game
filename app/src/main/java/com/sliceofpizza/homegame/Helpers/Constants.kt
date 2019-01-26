@@ -23,5 +23,6 @@ class Constants {
         var hasWaste = false
         const val wasteRepeat: Long = 1250
         const val maxLapForValves = 3
+        const val alienspawnRepeat: Long = 40000
     }
 }

@@ -12,4 +12,18 @@
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/lever"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        />
+    </RelativeLayout>
+
 </FrameLayout>

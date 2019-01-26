@@ -18,6 +18,13 @@
         <activity
             android:name=".activities.InActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".activities.Puzzle"></activity>
+        <activity
+            android:name=".activities.OutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.InActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

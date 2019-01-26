@@ -7,6 +7,7 @@ import android.util.Log
 import com.google.firebase.database.*
 import com.sliceofpizza.homegame.activities.InActivity
 import com.sliceofpizza.homegame.activities.OutActivity
+import com.sliceofpizza.homegame.activities.Puzzle
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -36,6 +37,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(i)
         }
 
+        puzzle.setOnClickListener {
+            var i =Intent(this, Puzzle::class.java)
+            startActivity(i)
+        }
     }
 
 
