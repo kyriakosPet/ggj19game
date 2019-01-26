@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.fragment_inner_a.*
 
 class InnerAFragment : Fragment()  {
 
-    var isUp = false
+    private var dY: Float = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,12 +18,9 @@ class InnerAFragment : Fragment()  {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-
         return inflater.inflate(R.layout.fragment_inner_a, container, false)
 
     }
-
-    private var dY: Float = 0f
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
