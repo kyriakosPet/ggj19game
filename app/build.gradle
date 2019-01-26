@@ -37,6 +37,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:16.0.1'
 
     implementation 'com.github.antonyt:InfiniteViewPager:v1.0.0'
+    implementation 'com.sasank.roundedhorizontalprogress:roundedhorizontalprogress:1.0.1'
 }
 
 apply plugin: 'com.google.gms.google-services'
