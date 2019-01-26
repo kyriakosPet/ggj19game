@@ -19,6 +19,13 @@ class InnerAFragment : Fragment()  {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
 
+
+        return inflater.inflate(R.layout.fragment_inner_a, container, false)
+    }
+
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         this.view!!.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                 when (event?.action) {
@@ -37,8 +44,6 @@ class InnerAFragment : Fragment()  {
                 return v?.onTouchEvent(event) ?: true
             }
         })
-
-        return inflater.inflate(R.layout.fragment_inner_a, container, false)
 
     }
 }

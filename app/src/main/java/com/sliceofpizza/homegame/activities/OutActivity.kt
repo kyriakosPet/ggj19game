@@ -103,12 +103,15 @@ class OutActivity : AppCompatActivity() {
         t.scheduleAtFixedRate(object : TimerTask() {
 
             override fun run() {
-                if(myRef?.child("alienBz")==null){
+                if(latestdataSnapshot?.child("alienBz")?.value ==null){
                     fb?.spawnAlien()
-                }else if(myRef?.child("alienCz")==null){
+                    myRef?.child("alienBz")?.setValue(0)
+                }else if(latestdataSnapshot?.child("alienCz")?.value==null){
                     fc?.spawnAlien()
-                }else if (myRef?.child("alienDz")==null){
+                    myRef?.child("alienCz")?.setValue(0)
+                }else if (latestdataSnapshot?.child("alienDz")?.value==null){
                     fd?.spawnAlien()
+                    myRef?.child("alienDz")?.setValue(0)
                 }
             }
 
