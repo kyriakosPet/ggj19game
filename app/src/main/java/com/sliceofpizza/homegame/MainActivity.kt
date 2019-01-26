@@ -37,10 +37,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(i)
         }
 
-        puzzle.setOnClickListener {
-            var i =Intent(this, Puzzle::class.java)
-            startActivity(i)
-        }
+
     }
 
 
