@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "568922868471",
+    "firebase_url": "https://homegame-73596.firebaseio.com",
+    "project_id": "homegame-73596",
+    "storage_bucket": "homegame-73596.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568922868471:android:fb11c6c681df23a7",
+        "android_client_info": {
+          "package_name": "com.sliceofpizza.homegame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "568922868471-3qjrnqpli3io8kedo1kenjln640inr39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhxPC7ezdAl0GGWskzI0IK2ZHFOIVHRRo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
