@@ -64,11 +64,9 @@ class Puzzle : AppCompatActivity() {
     }
 
     private fun winAndClose() {
-        var database: FirebaseDatabase? = null
-        var myRef: DatabaseReference? = null
 
-        database = FirebaseDatabase.getInstance()
-        myRef = database!!.getReference("gamestatus")
+        var database = FirebaseDatabase.getInstance()
+        var myRef = database!!.getReference("gamestatus")
         myRef?.child("hasElectricity")?.setValue(true)
         finish()
     }
