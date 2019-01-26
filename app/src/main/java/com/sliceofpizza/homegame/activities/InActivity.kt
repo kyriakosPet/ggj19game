@@ -5,33 +5,63 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import android.view.animation.LinearInterpolator
+import android.util.Log
+import com.antonyt.infiniteviewpager.InfinitePagerAdapter
+import com.antonyt.infiniteviewpager.MinFragmentPagerAdapter
+import com.google.firebase.database.*
 import com.sliceofpizza.homegame.R
 import com.sliceofpizza.homegame.infragments.InnerAFragment
 import com.sliceofpizza.homegame.infragments.InnerBFragment
 import com.sliceofpizza.homegame.infragments.InnerCFragment
 import com.sliceofpizza.homegame.infragments.InnerDFragment
 import kotlinx.android.synthetic.main.activity_in.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class InActivity : AppCompatActivity() {
+
+    var database: FirebaseDatabase? = null
+    var myRef: DatabaseReference? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_in)
 
         createPager()
+
+        setupFirebaseDatabase()
     }
 
     private fun createPager() {
         val adapter = ViewPagerAdapter(supportFragmentManager, 4)
-        pager.adapter = adapter
-//        pager.scrollDuration = 500;
-//        pager.interpolator = LinearInterpolator();
-//        pager.isMediumScaled = false;
-//        pager.maxPageScale = 1f
-//        pager.minPageScale = 1f
-//        pager.centerPageScaleOffset = 0f
-//        pager.minPageScaleOffset = 0f
+        val wrappedMinAdapter = MinFragmentPagerAdapter(supportFragmentManager)
+        wrappedMinAdapter.setAdapter(adapter)
+        val wrappedAdapter = InfinitePagerAdapter(wrappedMinAdapter)
+
+        inpager.adapter = wrappedAdapter
+    }
+
+    fun shootCannon() {
+        myRef?.child("didShot")?.setValue("true")
+    }
+
+    private fun setupFirebaseDatabase() {
+        database = FirebaseDatabase.getInstance()
+        myRef = database!!.getReference("gamestatus")
+
+
+        myRef!!.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                //val value = dataSnapshot.getValue(String::class.java)
+                valuetxt.text = dataSnapshot.child("message").value.toString()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+                Log.w("eeeee", "Failed to read value.", error.toException())
+            }
+        })
     }
 
     private class ViewPagerAdapter(fm: FragmentManager, val pages: Int) : FragmentPagerAdapter(fm) {

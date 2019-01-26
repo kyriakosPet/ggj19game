@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".activities.InActivity">
 
-    <com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager
-        android:id="@+id/pager"
+    <com.antonyt.infiniteviewpager.InfiniteViewPager
+        android:id="@+id/inpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
