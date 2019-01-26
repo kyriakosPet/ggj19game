@@ -23,18 +23,17 @@ import java.util.*
 class OutActivity : AppCompatActivity() {
 
 
-
     var database: FirebaseDatabase? = null
     var myRef: DatabaseReference? = null
 
-   var latestdataSnapshot: DataSnapshot?=null
+    var latestdataSnapshot: DataSnapshot? = null
 
 
-    var fa:AFragment?=null
-    var fb:BFragment?=null
-    var fc:CFragment?=null
-    var fd:DFragment?=null
-    var fe:EFragment?=null
+    var fa: AFragment? = null
+    var fb: BFragment? = null
+    var fc: CFragment? = null
+    var fd: DFragment? = null
+    var fe: EFragment? = null
 
 
     private fun changeValue() {
@@ -49,16 +48,16 @@ class OutActivity : AppCompatActivity() {
 
         myRef!!.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                latestdataSnapshot=dataSnapshot
+                latestdataSnapshot = dataSnapshot
 
-               if(dataSnapshot.hasChild("didShot") && dataSnapshot.child("didShot").value as Boolean){
-                   Log.d("eeeeee", "shooot")
-                   myRef?.child("didShot")?.setValue(false)
-               }
+                if (dataSnapshot.hasChild("didShot") && dataSnapshot.child("didShot").value as Boolean) {
+                    Log.d("eeeeee", "shooot")
+                    myRef?.child("didShot")?.setValue(false)
+                }
 
-                if(dataSnapshot.hasChild("health") ){
+                if (dataSnapshot.hasChild("health")) {
                     Log.d("eeeeee", "health " + dataSnapshot.child("health"))
-                    progress_bar.progress= (dataSnapshot.child("health").value as Long).toInt()
+                    progress_bar.progress = (dataSnapshot.child("health").value as Long).toInt()
                 }
 
                 fa?.setData(latestdataSnapshot)
@@ -76,15 +75,14 @@ class OutActivity : AppCompatActivity() {
     }
 
 
-    fun allienHitMe(){
-        myRef?.child("health")?.setValue(progress_bar.progress-10)
+    fun allienHitMe() {
+        myRef?.child("health")?.setValue(progress_bar.progress - 10)
     }
 
 
-    fun getData () : DataSnapshot?{
+    fun getData(): DataSnapshot? {
         return latestdataSnapshot
     }
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,19 +101,19 @@ class OutActivity : AppCompatActivity() {
         t.scheduleAtFixedRate(object : TimerTask() {
 
             override fun run() {
-                if(latestdataSnapshot?.child("alienBz")?.value ==null){
+                if (latestdataSnapshot?.child("alienBz")?.value == null) {
                     fb?.spawnAlien()
-                    if(fb!=null) {
+                    if (fb != null) {
                         myRef?.child("alienBz")?.setValue(0)
                     }
-                }else if(latestdataSnapshot?.child("alienCz")?.value==null){
+                } else if (latestdataSnapshot?.child("alienCz")?.value == null) {
                     fc?.spawnAlien()
-                    if(fc!=null) {
+                    if (fc != null) {
                         myRef?.child("alienCz")?.setValue(0)
                     }
-                }else if (latestdataSnapshot?.child("alienDz")?.value==null){
+                } else if (latestdataSnapshot?.child("alienDz")?.value == null) {
                     fd?.spawnAlien()
-                    if(fd!=null) {
+                    if (fd != null) {
                         myRef?.child("alienDz")?.setValue(0)
                     }
                 }
@@ -129,13 +127,17 @@ class OutActivity : AppCompatActivity() {
 
         val adapter = ViewPagerAdapter(supportFragmentManager, 5)
 
-        val wrappedMinAdapter = MinFragmentPagerAdapter(supportFragmentManager)
-        wrappedMinAdapter.setAdapter(adapter)
-        val wrappedAdapter = InfinitePagerAdapter(wrappedMinAdapter)
+//        val wrappedMinAdapter = MinFragmentPagerAdapter(supportFragmentManager)
+//        wrappedMinAdapter.setAdapter(adapter)
+//        val wrappedAdapter = InfinitePagerAdapter(wrappedMinAdapter)
 
-        oupager.adapter = wrappedAdapter
+        oupager.offscreenPageLimit=5
+        oupager.adapter = adapter
     }
 
+    fun nullVlue(vv: String) {
+        myRef?.child(vv)?.setValue(null)
+    }
 
 
     inner class ViewPagerAdapter(fm: FragmentManager, val pages: Int) : FragmentPagerAdapter(fm) {
@@ -143,28 +145,48 @@ class OutActivity : AppCompatActivity() {
         override fun getItem(position: Int): Fragment? {
             var fragment: Fragment? = null
 
-            if(position==0){
-                fragment= AFragment()
-                fa =fragment
+            if (position == 0) {
+                if(fa == null) {
+                    fragment = AFragment()
+                }else{
+                    fragment=fa
+                }
+                fa = fragment as AFragment
             }
-            if(position==1){
-                fragment = BFragment()
-                fb =fragment
+            if (position == 1) {
+                if(fb == null) {
+                    fragment = BFragment()
+                }else{
+                    fragment=fb
+                }
+                fb = fragment as BFragment
             }
-            if(position==2){
-                fragment = CFragment()
-                fc =fragment
+            if (position == 2) {
+                if(fc == null) {
+                    fragment = CFragment()
+                }else{
+                    fragment=fc
+                }
+                fc = fragment as CFragment
             }
-            if(position==3){
-                fragment = DFragment()
-                fd =fragment
+            if (position == 3) {
+                if(fd == null) {
+                    fragment = DFragment()
+                }else{
+                    fragment=fd
+                }
+                fd = fragment as DFragment
             }
-            if(position==4){
-                fragment = EFragment()
-                fe =fragment
+            if (position == 4) {
+                if(fe == null) {
+                    fragment = EFragment()
+                }else{
+                    fragment=fe
+                }
+                fe = fragment as EFragment
             }
 
-            Log.d("eeeee","pos "+ position )
+            Log.d("eeeee", "pos " + position)
 
             return fragment
         }
@@ -177,7 +199,6 @@ class OutActivity : AppCompatActivity() {
             return "Tab " + (position + 1)
         }
     }
-
 
 
 }

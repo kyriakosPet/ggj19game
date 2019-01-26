@@ -1,6 +1,7 @@
 package com.sliceofpizza.homegame.outfragments
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -10,6 +11,8 @@ import android.view.ViewGroup
 import com.google.firebase.database.DataSnapshot
 
 import com.sliceofpizza.homegame.R
+import com.sliceofpizza.homegame.activities.Puzzle
+import kotlinx.android.synthetic.main.fragment_a.*
 
 class AFragment : Fragment() {
 
@@ -21,13 +24,22 @@ class AFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
 
-
         return inflater.inflate(R.layout.fragment_a, container, false)
+    }
+
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        reyma.setOnClickListener {  var i = Intent(activity, Puzzle::class.java)
+            startActivity(i) }
+
+
     }
 
     fun setData(latestdataSnapshot: DataSnapshot?) {
 
     }
+
 
 
 }
