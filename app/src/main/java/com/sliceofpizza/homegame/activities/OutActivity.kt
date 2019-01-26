@@ -5,9 +5,19 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import android.view.animation.Interpolator
+import android.view.animation.LinearInterpolator
 import com.sliceofpizza.homegame.R
 import com.sliceofpizza.homegame.outfragments.*
 import kotlinx.android.synthetic.main.activity_out.*
+import com.antonyt.infiniteviewpager.MinFragmentPagerAdapter
+
+import com.antonyt.infiniteviewpager.InfinitePagerAdapter
+import android.support.v4.view.PagerAdapter
+
+
+
+
 
 class OutActivity : AppCompatActivity() {
 
@@ -19,9 +29,16 @@ class OutActivity : AppCompatActivity() {
     }
 
     private fun setupPager() {
-        val adapter = ViewPagerAdapter(supportFragmentManager, 5)
-        oupager.adapter = adapter
 
+
+        val adapter = ViewPagerAdapter(supportFragmentManager, 5)
+
+
+        val wrappedMinAdapter = MinFragmentPagerAdapter(supportFragmentManager)
+        wrappedMinAdapter.setAdapter(adapter)
+        val wrappedAdapter = InfinitePagerAdapter(wrappedMinAdapter)
+
+        oupager.adapter = wrappedAdapter
     }
 
 
