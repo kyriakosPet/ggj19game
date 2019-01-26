@@ -22,5 +22,6 @@ class Constants {
         const val wasteFillAmount: Double = 2.0
         var hasWaste = false
         const val wasteRepeat: Long = 1250
+        const val alienspawnRepeat: Long = 40000
     }
 }
