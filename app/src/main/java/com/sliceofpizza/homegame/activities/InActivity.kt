@@ -21,6 +21,12 @@ class InActivity : AppCompatActivity() {
 
     var database: FirebaseDatabase? = null
     var myRef: DatabaseReference? = null
+    var wasteAmount: Double = 0.0
+    val wasteMin: Double = 0.0
+    val wasteMax: Double = 100.0
+    val wasteReduction: Double = 20.0
+    val wasteFillAmount: Double = 2.0
+    var hasWaste = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +48,27 @@ class InActivity : AppCompatActivity() {
 
     fun shootCannon() {
         myRef?.child("didShot")?.setValue(true)
+    }
+
+    private fun createWasteTimer() {
+        
+    }
+
+    fun getWasteFromBin() {
+        if (!hasWaste) {
+            hasWaste = true
+            if (wasteAmount > wasteMin) {
+                wasteAmount -= wasteReduction
+            }else {
+                wasteAmount = wasteMin
+            }
+        }
+    }
+
+    fun emptyWaste() {
+        if (hasWaste) {
+            hasWaste = false
+        }
     }
 
     private fun setupFirebaseDatabase() {
