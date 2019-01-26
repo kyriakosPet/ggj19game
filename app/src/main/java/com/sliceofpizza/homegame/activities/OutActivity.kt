@@ -1,22 +1,15 @@
 package com.sliceofpizza.homegame.activities
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import android.view.animation.Interpolator
-import android.view.animation.LinearInterpolator
+import android.support.v7.app.AppCompatActivity
+import com.antonyt.infiniteviewpager.InfinitePagerAdapter
+import com.antonyt.infiniteviewpager.MinFragmentPagerAdapter
 import com.sliceofpizza.homegame.R
 import com.sliceofpizza.homegame.outfragments.*
 import kotlinx.android.synthetic.main.activity_out.*
-import com.antonyt.infiniteviewpager.MinFragmentPagerAdapter
-
-import com.antonyt.infiniteviewpager.InfinitePagerAdapter
-import android.support.v4.view.PagerAdapter
-
-
-
 
 
 class OutActivity : AppCompatActivity() {
