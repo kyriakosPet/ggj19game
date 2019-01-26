@@ -53,6 +53,9 @@ class OutActivity : AppCompatActivity() {
                 if (dataSnapshot.hasChild("didShot") && dataSnapshot.child("didShot").value as Boolean) {
                     Log.d("eeeeee", "shooot")
                     myRef?.child("didShot")?.setValue(false)
+                    fb?.shoot()
+                    fc?.shoot()
+                    fd?.shoot()
                 }
 
                 if (dataSnapshot.hasChild("health")) {
@@ -131,12 +134,16 @@ class OutActivity : AppCompatActivity() {
 //        wrappedMinAdapter.setAdapter(adapter)
 //        val wrappedAdapter = InfinitePagerAdapter(wrappedMinAdapter)
 
-        oupager.offscreenPageLimit=5
+        oupager.offscreenPageLimit = 5
         oupager.adapter = adapter
     }
 
     fun nullVlue(vv: String) {
         myRef?.child(vv)?.setValue(null)
+    }
+
+    fun sentZ(vv: String, prog: Float) {
+        myRef?.child(vv)?.setValue(prog)
     }
 
 
@@ -146,42 +153,42 @@ class OutActivity : AppCompatActivity() {
             var fragment: Fragment? = null
 
             if (position == 0) {
-                if(fa == null) {
+                if (fa == null) {
                     fragment = AFragment()
-                }else{
-                    fragment=fa
+                } else {
+                    fragment = fa
                 }
                 fa = fragment as AFragment
             }
             if (position == 1) {
-                if(fb == null) {
+                if (fb == null) {
                     fragment = BFragment()
-                }else{
-                    fragment=fb
+                } else {
+                    fragment = fb
                 }
                 fb = fragment as BFragment
             }
             if (position == 2) {
-                if(fc == null) {
+                if (fc == null) {
                     fragment = CFragment()
-                }else{
-                    fragment=fc
+                } else {
+                    fragment = fc
                 }
                 fc = fragment as CFragment
             }
             if (position == 3) {
-                if(fd == null) {
+                if (fd == null) {
                     fragment = DFragment()
-                }else{
-                    fragment=fd
+                } else {
+                    fragment = fd
                 }
                 fd = fragment as DFragment
             }
             if (position == 4) {
-                if(fe == null) {
+                if (fe == null) {
                     fragment = EFragment()
-                }else{
-                    fragment=fe
+                } else {
+                    fragment = fe
                 }
                 fe = fragment as EFragment
             }

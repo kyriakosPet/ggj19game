@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/outside_a"
     android:layout_height="match_parent"
+    android:background="@drawable/outside_background_a"
     tools:context=".outfragments.AFragment">
 
-<ImageView
-    android:id="@+id/reyma"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:scaleX="0.7"
-    android:scaleY="0.7"
-    android:src="@drawable/reuma"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/outside_a" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/reyma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:adjustViewBounds="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="120dp"
+        android:src="@drawable/reuma" />
+
+    <ImageView
+        android:id="@+id/reymabtn"
+        android:layout_width="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:src="@drawable/reuma_btn" />
+
+</RelativeLayout>
