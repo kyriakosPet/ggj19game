@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.sliceofpizza.homegame.R
-import com.sliceofpizza.homegame.outfragments.AFragment
+import com.sliceofpizza.homegame.outfragments.*
 import kotlinx.android.synthetic.main.activity_out.*
 
 class OutActivity : AppCompatActivity() {
@@ -34,6 +34,19 @@ class OutActivity : AppCompatActivity() {
             if(position==0){
                 fragment= AFragment()
             }
+            if(position==1){
+                fragment = BFragment()
+            }
+            if(position==2){
+                fragment = CFragment()
+            }
+            if(position==3){
+                fragment = DFragment()
+            }
+            if(position==4){
+                fragment = EFragment()
+            }
+
 
             return fragment
         }
