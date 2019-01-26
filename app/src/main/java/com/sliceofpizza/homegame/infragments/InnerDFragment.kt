@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.sliceofpizza.homegame.R
+import com.sliceofpizza.homegame.activities.InActivity
+import kotlinx.android.synthetic.main.fragment_inner_d.*
 
 class InnerDFragment : Fragment() {
 
@@ -20,5 +22,16 @@ class InnerDFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_inner_d, container, false)
+    }
+
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        waste_button.setOnClickListener {
+            takeWaste()
+        }
+    }
+
+    private fun takeWaste() {
+        (activity as? InActivity)?.getWasteFromBin()
     }
 }

@@ -20,6 +20,7 @@ import com.sliceofpizza.homegame.infragments.InnerDFragment
 import kotlinx.android.synthetic.main.activity_in.*
 import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Constants.Constants.wasteFillAmount
 import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Constants.Constants.wasteMax
+import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Constants.Constants.wasteRepeat
 import com.sliceofpizza.homegame.R
 import java.util.*
 
@@ -61,23 +62,28 @@ class InActivity : AppCompatActivity() {
 
             override fun run() {
                 wasteAmount += wasteFillAmount
-                waste_progress_bar.progress = wasteAmount.toInt()
-                if (wasteAmount >= wasteMax) run {
-                    //TODO: gameover
-                }
+                setWasteProgress()
             }
 
-        }, 1000, 1000)
+        }, 1000, wasteRepeat)
     }
 
     fun getWasteFromBin() {
         if (!hasWaste) {
             hasWaste = true
-            if (wasteAmount > wasteMin) {
+            if (wasteAmount > wasteReduction) {
                 wasteAmount -= wasteReduction
             }else {
                 wasteAmount = wasteMin
             }
+            setWasteProgress()
+        }
+    }
+
+    private fun setWasteProgress() {
+        waste_progress_bar.progress = wasteAmount.toInt()
+        if (wasteAmount >= wasteMax) run {
+            //TODO: gameover
         }
     }
 
