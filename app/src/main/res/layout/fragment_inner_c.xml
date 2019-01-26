@@ -6,10 +6,9 @@
     android:background="#eedd00"
     tools:context=".infragments.InnerCFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageButton
+        android:id="@+id/cannon_button"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
 
 </FrameLayout>

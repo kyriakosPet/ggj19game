@@ -41,27 +41,12 @@ class InActivity : AppCompatActivity() {
     }
 
     fun shootCannon() {
-        myRef?.child("didShot")?.setValue("true")
+        myRef?.child("didShot")?.setValue(true)
     }
 
     private fun setupFirebaseDatabase() {
         database = FirebaseDatabase.getInstance()
         myRef = database!!.getReference("gamestatus")
-
-
-        myRef!!.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                //val value = dataSnapshot.getValue(String::class.java)
-                valuetxt.text = dataSnapshot.child("message").value.toString()
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-                Log.w("eeeee", "Failed to read value.", error.toException())
-            }
-        })
     }
 
     private class ViewPagerAdapter(fm: FragmentManager, val pages: Int) : FragmentPagerAdapter(fm) {
