@@ -12,6 +12,7 @@ import com.google.firebase.database.DataSnapshot
 
 import com.sliceofpizza.homegame.R
 import com.sliceofpizza.homegame.activities.OutActivity
+import kotlinx.android.synthetic.main.fragment_c.*
 
 class CFragment : Fragment() {
 
@@ -34,6 +35,13 @@ class CFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         latestData=  (activity as OutActivity).latestdataSnapshot
+
+
+        if(true){
+            alien.animate().y(500f).withEndAction {
+                (activity as OutActivity).allienHitMe()
+            }
+        }
 
     }
 
