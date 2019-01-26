@@ -104,11 +104,11 @@ class OutActivity : AppCompatActivity() {
 
             override fun run() {
                 if(myRef?.child("alienBz")==null){
-
+                    fb?.spawnAlien()
                 }else if(myRef?.child("alienCz")==null){
-
+                    fc?.spawnAlien()
                 }else if (myRef?.child("alienDz")==null){
-
+                    fd?.spawnAlien()
                 }
             }
 
