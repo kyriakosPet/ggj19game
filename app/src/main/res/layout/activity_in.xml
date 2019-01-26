@@ -10,9 +10,7 @@
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:icvp_max_page_scale="1"
-        app:icvp_min_page_scale="1"
-        app:icvp_min_page_scale_offset="0dp"
+
         />
 
 </RelativeLayout>
