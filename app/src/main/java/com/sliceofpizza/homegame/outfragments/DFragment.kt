@@ -11,7 +11,7 @@ import com.google.firebase.database.DataSnapshot
 
 import com.sliceofpizza.homegame.R
 
-class DFragment : Fragment() {
+class DFragment : AlienFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
