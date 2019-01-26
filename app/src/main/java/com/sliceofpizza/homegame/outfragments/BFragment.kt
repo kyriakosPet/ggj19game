@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.firebase.database.DataSnapshot
 
 import com.sliceofpizza.homegame.R
 
@@ -19,6 +20,10 @@ class BFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_b, container, false)
+    }
+
+    fun setData(latestdataSnapshot: DataSnapshot?) {
+
     }
 
 
