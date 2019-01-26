@@ -21,4 +21,6 @@ class InnerBFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_inner_b, container, false)
     }
+
+
 }
