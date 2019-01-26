@@ -1,9 +1,12 @@
 package com.sliceofpizza.homegame
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.google.firebase.database.*
+import com.sliceofpizza.homegame.activities.InActivity
+import com.sliceofpizza.homegame.activities.OutActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +25,17 @@ class MainActivity : AppCompatActivity() {
         btn.setOnClickListener {
             changeValue()
         }
+
+        inbtn.setOnClickListener {
+            var i =Intent(this, InActivity::class.java)
+            startActivity(i)
+        }
+
+        outbtn.setOnClickListener {
+            var i =Intent(this, OutActivity::class.java)
+            startActivity(i)
+        }
+
     }
 
 
