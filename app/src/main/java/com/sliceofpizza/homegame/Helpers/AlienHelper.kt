@@ -1,43 +1,44 @@
 package com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers
 
-import java.util.*
+import kotlin.random.Random
+
 
 class AlienHelper{
     companion object AlienHelper {
         fun getPositionInSquare(square : Square) : Coordinate{
             when(square){
                 Square.A -> {
-                    return Coordinate((0..Constants.width1).random(),(0..44).random())
+                    return Coordinate(Random.nextInt(0,Constants.width1),Random.nextInt(0,Constants.height1))
                 }
                 Square.B -> {
-                    return Coordinate((Constants.width1..Constants.width2).random(),(0..44).random())
+                    return Coordinate(Random.nextInt(Constants.width1,Constants.width2),Random.nextInt(0,Constants.height1))
 
                 }
                 Square.C -> {
-                    return Coordinate((Constants.width2..Constants.width3).random(),(0..44).random())
+                    return Coordinate(Random.nextInt(Constants.width2,Constants.width3),Random.nextInt(0,Constants.height1))
 
                 }
                 Square.D -> {
-                    return Coordinate((0..Constants.width1).random(),(45..74).random())
+                    return Coordinate(Random.nextInt(0,Constants.width1),Random.nextInt(Constants.height1,Constants.height2))
 
                 }
                 Square.E -> {
-                    return Coordinate((Constants.width1..Constants.width2).random(),(45..74).random())
+                    return Coordinate(Random.nextInt(Constants.width1,Constants.width2),Random.nextInt(Constants.height1,Constants.height2))
 
                 }
                 Square.F -> {
-                    return Coordinate((Constants.width2..Constants.width3).random(),(45..74).random())
+                    return Coordinate(Random.nextInt(Constants.width2,Constants.width3),Random.nextInt(Constants.height1,Constants.height2))
 
                 }
                 Square.G -> {
-                    return Coordinate((0..Constants.width1).random(),(75..99).random())
+                    return Coordinate(Random.nextInt(0,Constants.width1),Random.nextInt(Constants.height2,Constants.height3))
 
                 }
                 Square.H -> {
-                    return Coordinate((Constants.width1..Constants.width2).random(),(75..99).random())
+                    return Coordinate(Random.nextInt(Constants.width1,Constants.width2),Random.nextInt(Constants.height2,Constants.height3))
                 }
                 Square.I -> {
-                    return Coordinate((Constants.width2..Constants.width3).random(),(75..99).random())
+                    return Coordinate(Random.nextInt(Constants.width2,Constants.width3),Random.nextInt(Constants.height2,Constants.height3))
                 }
             }
         }
