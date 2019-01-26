@@ -21,6 +21,8 @@ class InActivity : AppCompatActivity() {
 
     var database: FirebaseDatabase? = null
     var myRef: DatabaseReference? = null
+    var latestdataSnapshot: DataSnapshot?=null
+
     var wasteAmount: Double = 0.0
     val wasteMin: Double = 0.0
     val wasteMax: Double = 100.0
@@ -51,7 +53,7 @@ class InActivity : AppCompatActivity() {
     }
 
     private fun createWasteTimer() {
-        
+
     }
 
     fun getWasteFromBin() {
@@ -74,6 +76,23 @@ class InActivity : AppCompatActivity() {
     private fun setupFirebaseDatabase() {
         database = FirebaseDatabase.getInstance()
         myRef = database!!.getReference("gamestatus")
+
+
+        myRef!!.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                latestdataSnapshot=dataSnapshot
+
+                if(dataSnapshot.hasChild("health") ){
+                    Log.d("eeeeee", "health " + dataSnapshot.child("health"))
+                    progress_bar.progress= (dataSnapshot.child("health").value as Long).toInt()
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
     }
 
     private class ViewPagerAdapter(fm: FragmentManager, val pages: Int) : FragmentPagerAdapter(fm) {
