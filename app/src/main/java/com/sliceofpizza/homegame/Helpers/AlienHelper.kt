@@ -7,37 +7,37 @@ class AlienHelper{
         fun getPositionInSquare(square : Square) : Coordinate{
             when(square){
                 Square.A -> {
-                    return Coordinate((0..24).random(),(0..44).random())
+                    return Coordinate((0..Constants.width1).random(),(0..44).random())
                 }
                 Square.B -> {
-                    return Coordinate((25..54).random(),(0..44).random())
+                    return Coordinate((Constants.width1..Constants.width2).random(),(0..44).random())
 
                 }
                 Square.C -> {
-                    return Coordinate((54..75).random(),(0..44).random())
+                    return Coordinate((Constants.width2..Constants.width3).random(),(0..44).random())
 
                 }
                 Square.D -> {
-                    return Coordinate((0..24).random(),(45..74).random())
+                    return Coordinate((0..Constants.width1).random(),(45..74).random())
 
                 }
                 Square.E -> {
-                    return Coordinate((25..54).random(),(45..74).random())
+                    return Coordinate((Constants.width1..Constants.width2).random(),(45..74).random())
 
                 }
                 Square.F -> {
-                    return Coordinate((54..75).random(),(45..74).random())
+                    return Coordinate((Constants.width2..Constants.width3).random(),(45..74).random())
 
                 }
                 Square.G -> {
-                    return Coordinate((0..24).random(),(75..99).random())
+                    return Coordinate((0..Constants.width1).random(),(75..99).random())
 
                 }
                 Square.H -> {
-                    return Coordinate((25..54).random(),(75..99).random())
+                    return Coordinate((Constants.width1..Constants.width2).random(),(75..99).random())
                 }
                 Square.I -> {
-                    return Coordinate((54..75).random(),(75..99).random())
+                    return Coordinate((Constants.width2..Constants.width3).random(),(75..99).random())
                 }
             }
         }
