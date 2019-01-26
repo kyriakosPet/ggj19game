@@ -105,13 +105,19 @@ class OutActivity : AppCompatActivity() {
             override fun run() {
                 if(latestdataSnapshot?.child("alienBz")?.value ==null){
                     fb?.spawnAlien()
-                    myRef?.child("alienBz")?.setValue(0)
+                    if(fb!=null) {
+                        myRef?.child("alienBz")?.setValue(0)
+                    }
                 }else if(latestdataSnapshot?.child("alienCz")?.value==null){
                     fc?.spawnAlien()
-                    myRef?.child("alienCz")?.setValue(0)
+                    if(fc!=null) {
+                        myRef?.child("alienCz")?.setValue(0)
+                    }
                 }else if (latestdataSnapshot?.child("alienDz")?.value==null){
                     fd?.spawnAlien()
-                    myRef?.child("alienDz")?.setValue(0)
+                    if(fd!=null) {
+                        myRef?.child("alienDz")?.setValue(0)
+                    }
                 }
             }
 
@@ -132,25 +138,30 @@ class OutActivity : AppCompatActivity() {
 
 
 
-    class ViewPagerAdapter(fm: FragmentManager, val pages: Int) : FragmentPagerAdapter(fm) {
+    inner class ViewPagerAdapter(fm: FragmentManager, val pages: Int) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment? {
             var fragment: Fragment? = null
 
             if(position==0){
                 fragment= AFragment()
+                fa =fragment
             }
             if(position==1){
                 fragment = BFragment()
+                fb =fragment
             }
             if(position==2){
                 fragment = CFragment()
+                fc =fragment
             }
             if(position==3){
                 fragment = DFragment()
+                fd =fragment
             }
             if(position==4){
                 fragment = EFragment()
+                fe =fragment
             }
 
             Log.d("eeeee","pos "+ position )

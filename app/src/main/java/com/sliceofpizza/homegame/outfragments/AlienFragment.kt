@@ -55,7 +55,15 @@ open class AlienFragment : Fragment() {
 
     private fun alienHitMe() {
         alien?.animate()!!.y(3000f).setDuration(1000).withEndAction {
+            if(this is BFragment){
 
+            }
+            if(this is CFragment){
+
+            }
+            if(this is DFragment){
+
+            }
         }
     }
 
