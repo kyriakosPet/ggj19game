@@ -31,10 +31,10 @@ class InnerAFragment : Fragment()  {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                 when (event?.action) {
                     MotionEvent.ACTION_DOWN -> {
+                        (activity as InActivity).myRef!!.child("levelUp").setValue(true)
                         if ( !isUp ) {
                             isUp = true
                             lever.animate().translationYBy(-100f).setDuration(400).withEndAction {
-                                (activity as InActivity).myRef!!.child("levelUp").setValue(true)
                             }
                         }
                     }
