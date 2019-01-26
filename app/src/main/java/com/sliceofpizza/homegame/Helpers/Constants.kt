@@ -12,10 +12,11 @@ class Constants {
 
 
         var wasteAmount: Double = 0.0
-        val wasteMin: Double = 0.0
-        val wasteMax: Double = 100.0
-        val wasteReduction: Double = 20.0
-        val wasteFillAmount: Double = 2.0
+        const val wasteMin: Double = 0.0
+        const val wasteMax: Double = 100.0
+        const val wasteReduction: Double = 20.0
+        const val wasteFillAmount: Double = 2.0
         var hasWaste = false
+        const val wasteRepeat: Long = 1250
     }
 }
