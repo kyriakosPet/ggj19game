@@ -24,5 +24,9 @@ class Constants {
         const val wasteRepeat: Long = 1250
         const val maxLapForValves = 3
         const val alienspawnRepeat: Long = 40000
+
+        var hasBlackOut = false
+        const val blackOutRepeat: Long = 5000
+        const val blackOutChance = 6
     }
 }

@@ -40,4 +40,14 @@
         app:backgroundColor="@android:color/holo_orange_light"
         app:progressColor="@android:color/holo_blue_dark"/>
 
+    <RelativeLayout
+        android:id="@+id/black_out_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:clickable="false"
+        android:background="#000000">
+
+    </RelativeLayout>
+
 </RelativeLayout>
