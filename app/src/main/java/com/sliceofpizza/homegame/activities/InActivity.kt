@@ -8,27 +8,27 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.util.Log
 import com.antonyt.infiniteviewpager.InfinitePagerAdapter
 import com.antonyt.infiniteviewpager.MinFragmentPagerAdapter
+import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Constants.Constants.hasWaste
+import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Constants.Constants.wasteAmount
+import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Constants.Constants.wasteMin
+import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Constants.Constants.wasteReduction
 import com.google.firebase.database.*
-import com.sliceofpizza.homegame.R
 import com.sliceofpizza.homegame.infragments.InnerAFragment
 import com.sliceofpizza.homegame.infragments.InnerBFragment
 import com.sliceofpizza.homegame.infragments.InnerCFragment
 import com.sliceofpizza.homegame.infragments.InnerDFragment
 import kotlinx.android.synthetic.main.activity_in.*
-import kotlinx.android.synthetic.main.activity_main.*
+import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Constants.Constants.wasteFillAmount
+import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Constants.Constants.wasteMax
+import com.sliceofpizza.homegame.R
+import java.util.*
+
 
 class InActivity : AppCompatActivity() {
 
     var database: FirebaseDatabase? = null
     var myRef: DatabaseReference? = null
     var latestdataSnapshot: DataSnapshot?=null
-
-    var wasteAmount: Double = 0.0
-    val wasteMin: Double = 0.0
-    val wasteMax: Double = 100.0
-    val wasteReduction: Double = 20.0
-    val wasteFillAmount: Double = 2.0
-    var hasWaste = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +37,8 @@ class InActivity : AppCompatActivity() {
         createPager()
 
         setupFirebaseDatabase()
+
+        createWasteTimer()
     }
 
     private fun createPager() {
@@ -53,7 +55,19 @@ class InActivity : AppCompatActivity() {
     }
 
     private fun createWasteTimer() {
+        waste_progress_bar.progress = 0
+        val t = Timer()
+        t.scheduleAtFixedRate(object : TimerTask() {
 
+            override fun run() {
+                wasteAmount += wasteFillAmount
+                waste_progress_bar.progress = wasteAmount.toInt()
+                if (wasteAmount >= wasteMax) run {
+                    //TODO: gameover
+                }
+            }
+
+        }, 1000, 1000)
     }
 
     fun getWasteFromBin() {
