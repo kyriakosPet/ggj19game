@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.View
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.sliceofpizza.homegame.R
 import kotlinx.android.synthetic.main.activity_puzzle.*
 import kotlin.random.Random
@@ -46,6 +48,31 @@ class Puzzle : AppCompatActivity() {
 
     }
 
+    fun checkForWin(){
+        if ( puzzle1.rotation == 0f &&
+                puzzle2.rotation == 0f &&
+                puzzle3.rotation == 0f &&
+                puzzle4.rotation == 0f &&
+                puzzle5.rotation == 0f &&
+                puzzle6.rotation == 0f &&
+                puzzle7.rotation == 0f &&
+                puzzle8.rotation == 0f &&
+                puzzle9.rotation == 0f
+                ){
+            winAndClose()
+        }
+    }
+
+    private fun winAndClose() {
+        var database: FirebaseDatabase? = null
+        var myRef: DatabaseReference? = null
+
+        database = FirebaseDatabase.getInstance()
+        myRef = database!!.getReference("gamestatus")
+        myRef?.child("hasElectricity")?.setValue(true)
+        finish()
+    }
+
     fun rotateAndCheck(v : View) {
         v.animate().rotationBy(90f).setDuration(500).withEndAction {
             Log.d("eeeee","rotation"  + v.rotation)
@@ -54,6 +81,7 @@ class Puzzle : AppCompatActivity() {
             if ( v.rotation == 0f) {
                 v.setBackgroundColor(ContextCompat.getColor(this,R.color.red))
             }
+            checkForWin()
         }
     }
     fun scrumble(){
