@@ -52,14 +52,23 @@ class CFragment : Fragment() {
 
     }
 
-var waypointNumer=0
+
+    var startScale=0.5f
+    var waypointNumer=0
+    private var scaleStep =0f
+
     fun spawnAlien(){
         waypoints=AlienHelper.getAliensMovement()
 
+        scaleStep = (1 - startScale ) / waypoints.size
+
         alien.x=waypoints[0].x.toScreenWidth
         alien.y=waypoints[0].y.toScreenHeight
-        nextWayPoint(waypointNumer)
 
+        alien.scaleX=startScale
+        alien.scaleY=startScale
+
+        nextWayPoint(waypointNumer)
     }
 
     private fun nextWayPoint(waypointNumer: Int) {
@@ -68,7 +77,7 @@ var waypointNumer=0
             return
         }
 
-        alien.animate().x(waypoints[waypointNumer].x.toScreenWidth).y(waypoints[waypointNumer].y.toScreenHeight).setDuration(2000).withEndAction {
+        alien.animate().x(waypoints[waypointNumer].x.toScreenWidth).y(waypoints[waypointNumer].y.toScreenHeight).scaleY(startScale+ waypointNumer*scaleStep).scaleX(startScale+ waypointNumer*scaleStep).alpha(1f).setDuration(2000).withEndAction {
             this.waypointNumer++
         nextWayPoint(this.waypointNumer)}
     }
