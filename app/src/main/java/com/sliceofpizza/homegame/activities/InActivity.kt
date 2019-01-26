@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.widget.Toast
 import com.antonyt.infiniteviewpager.InfinitePagerAdapter
 import com.antonyt.infiniteviewpager.MinFragmentPagerAdapter
 import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Constants.Constants.blackOutChance
@@ -94,15 +93,15 @@ class InActivity : AppCompatActivity() {
         if (wasteAmount >= wasteMax) {
             wateTimer.cancel()
             runOnUiThread {
-                val alertDialog = AlertDialog.Builder(this).create() //Read Update
-                alertDialog.setTitle("Game Over")
-                alertDialog.setMessage("YOU DIED")
-
-                alertDialog.setButton("Continue") { _, _ ->
-                    finish()
-                }
-
-                alertDialog.show()
+//                val alertDialog = AlertDialog.Builder(this).create() //Read Update
+//                alertDialog.setTitle("Game Over")
+//                alertDialog.setMessage("YOU DIED")
+//
+//                alertDialog.setButton("Continue") { _, _ ->
+//                    finish()
+//                }
+//
+//                alertDialog.show()
             }
         }
     }
@@ -117,6 +116,14 @@ class InActivity : AppCompatActivity() {
         val i = Intent(this, ValveActivity::class.java)
         i.putExtra("sector", inSector)
         startActivity(i)
+    }
+
+    fun sendLeverUp() {
+        myRef?.child("leverUp")?.setValue(true)
+    }
+
+    fun sendLeverDown() {
+        myRef?.child("leverUp")?.setValue(false)
     }
 
     private fun createBlackOutTimer() {

@@ -3,9 +3,9 @@ package com.sliceofpizza.homegame.activities
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.agilie.circularpicker.presenter.CircularPickerContract
-import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Constants.Constants.hasBlackOut
 import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Constants.Constants.maxLapForValves
-import com.google.firebase.database.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.sliceofpizza.homegame.R
 import kotlinx.android.synthetic.main.activity_valve.*
 
