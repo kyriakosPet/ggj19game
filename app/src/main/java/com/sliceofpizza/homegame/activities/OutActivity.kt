@@ -14,8 +14,10 @@ import kotlinx.android.synthetic.main.activity_out.*
 import com.antonyt.infiniteviewpager.MinFragmentPagerAdapter
 
 import com.antonyt.infiniteviewpager.InfinitePagerAdapter
+import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Constants
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_main.*
+
+import java.util.*
 
 
 class OutActivity : AppCompatActivity() {
@@ -91,12 +93,32 @@ class OutActivity : AppCompatActivity() {
 
         setupPager()
         setupFirebaseDatabase()
+        createAlienSpawnTimer()
     }
+
+
+    private fun createAlienSpawnTimer() {
+
+        val t = Timer()
+        t.scheduleAtFixedRate(object : TimerTask() {
+
+            override fun run() {
+                if(myRef?.child("alienBz")==null){
+
+                }else if(myRef?.child("alienCz")==null){
+
+                }else if (myRef?.child("alienDz")==null){
+
+                }
+            }
+
+        }, 100, Constants.alienspawnRepeat)
+    }
+
 
     private fun setupPager() {
 
         val adapter = ViewPagerAdapter(supportFragmentManager, 5)
-
 
         val wrappedMinAdapter = MinFragmentPagerAdapter(supportFragmentManager)
         wrappedMinAdapter.setAdapter(adapter)
