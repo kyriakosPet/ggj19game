@@ -10,6 +10,10 @@ class Constants {
         val width2 = 66
         val width3 = 100
 
+        val height1 = 44
+        val height2 = 74
+        val height3 = 100
+
 
         var wasteAmount: Double = 0.0
         const val wasteMin: Double = 0.0
