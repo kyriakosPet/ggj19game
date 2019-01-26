@@ -1,28 +1,99 @@
 package com.sliceofpizza.homegame.activities
 
+import android.content.Intent
+import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import android.support.v7.app.AppCompatActivity
-import com.antonyt.infiniteviewpager.InfinitePagerAdapter
-import com.antonyt.infiniteviewpager.MinFragmentPagerAdapter
+import android.util.Log
+
 import com.sliceofpizza.homegame.R
 import com.sliceofpizza.homegame.outfragments.*
 import kotlinx.android.synthetic.main.activity_out.*
+import com.antonyt.infiniteviewpager.MinFragmentPagerAdapter
+
+import com.antonyt.infiniteviewpager.InfinitePagerAdapter
+import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class OutActivity : AppCompatActivity() {
+
+
+
+    var database: FirebaseDatabase? = null
+    var myRef: DatabaseReference? = null
+
+   var latestdataSnapshot: DataSnapshot?=null
+
+
+    var fa:AFragment?=null
+    var fb:BFragment?=null
+    var fc:CFragment?=null
+    var fd:DFragment?=null
+    var fe:EFragment?=null
+
+
+    private fun changeValue() {
+        myRef?.child("message")?.setValue("hello world " + System.currentTimeMillis())
+    }
+
+
+    private fun setupFirebaseDatabase() {
+        database = FirebaseDatabase.getInstance()
+        myRef = database!!.getReference("gamestatus")
+
+
+        myRef!!.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                latestdataSnapshot=dataSnapshot
+
+               if(dataSnapshot.hasChild("didShot") && dataSnapshot.child("didShot").value as Boolean){
+                   Log.d("eeeeee", "shooot")
+                   myRef?.child("didShot")?.setValue(false)
+               }
+
+                if(dataSnapshot.hasChild("health") ){
+                    Log.d("eeeeee", "health " + dataSnapshot.child("health"))
+                    progress_bar.progress= (dataSnapshot.child("health").value as Long).toInt()
+                }
+
+                fa?.setData(latestdataSnapshot)
+                fb?.setData(latestdataSnapshot)
+                fc?.setData(latestdataSnapshot)
+                fd?.setData(latestdataSnapshot)
+                fe?.setData(latestdataSnapshot)
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+    }
+
+
+    fun allienHitMe(){
+        myRef?.child("health")?.setValue(progress_bar.progress-10)
+    }
+
+
+    fun getData () : DataSnapshot?{
+        return latestdataSnapshot
+    }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_out)
 
         setupPager()
+        setupFirebaseDatabase()
     }
 
     private fun setupPager() {
-
 
         val adapter = ViewPagerAdapter(supportFragmentManager, 5)
 
@@ -57,6 +128,7 @@ class OutActivity : AppCompatActivity() {
                 fragment = EFragment()
             }
 
+            Log.d("eeeee","pos "+ position )
 
             return fragment
         }
