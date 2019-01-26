@@ -1,4 +1,4 @@
-fipackage com.sliceofpizza.homegame.infragments
+package com.sliceofpizza.homegame.infragments
 
 import android.content.Context
 import android.net.Uri
