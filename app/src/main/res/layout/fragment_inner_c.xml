@@ -9,6 +9,54 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/radar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/radar"
+            android:layout_centerInParent="true"
+            />
+        <ImageView
+            android:id="@+id/stigmaLeft"
+            android:layout_alignTop="@id/radar"
+            android:layout_marginLeft="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/stigma"
+            android:visibility="gone"
+            />
+        <ImageView
+            android:id="@+id/stigmaRight"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@id/radar"
+            android:layout_marginRight="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/stigma"
+            android:visibility="gone"
+            />
+        <ImageView
+            android:id="@+id/stigmaMid"
+            android:layout_alignTop="@id/radar"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/stigma"
+            android:visibility="gone"
+            />
+
+        <ImageView
+            android:id="@+id/stigmaEnd"
+            android:layout_alignBottom="@id/radar"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/stigma"
+            android:visibility="invisible"
+            />
+
+
         <ImageButton
             android:id="@+id/cannon_button"
             android:layout_width="100dp"
