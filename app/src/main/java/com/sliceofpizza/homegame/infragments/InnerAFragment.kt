@@ -9,8 +9,6 @@ import kotlinx.android.synthetic.main.fragment_inner_a.*
 
 class InnerAFragment : Fragment()  {
 
-    private var dY: Float = 0f
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -25,25 +23,20 @@ class InnerAFragment : Fragment()  {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        lever.setOnTouchListener { v, motionEvent ->
-            if (motionEvent.action == MotionEvent.ACTION_DOWN) {
-                dY = v.y - motionEvent.rawY
-            }
-            if (motionEvent.action == MotionEvent.ACTION_MOVE && motionEvent.rawY + dY < v.y) {
-                if (motionEvent.rawY + dY > 500) {
-                    v.animate().y(motionEvent.rawY + dY).setDuration(0).start()
-                } else {
-                    (activity as? InActivity)?.sendLeverUp()
-                }
-            }
-            if (motionEvent.action == MotionEvent.ACTION_UP) {
-                activity.runOnUiThread {
-                    v.animate().translationY(0f).setDuration(200).withEndAction {
-                        (activity as? InActivity)?.sendLeverDown()
-                    }.start()
-                }
-            }
-            return@setOnTouchListener true
+        valve_1.setOnClickListener {
+            (activity as? InActivity)?.openValveActivity("A")
+        }
+
+        valve_2.setOnClickListener {
+            (activity as? InActivity)?.openValveActivity("B")
+        }
+
+        valve_3.setOnClickListener {
+            (activity as? InActivity)?.openValveActivity("C")
+        }
+
+        valve_4.setOnClickListener {
+            (activity as? InActivity)?.openValveActivity("D")
         }
     }
 }

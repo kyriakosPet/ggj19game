@@ -3,6 +3,7 @@ package com.sliceofpizza.homegame.infragments
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import com.agilie.circularpicker.presenter.CircularPickerContract
@@ -12,6 +13,8 @@ import kotlinx.android.synthetic.main.fragment_inner_d.*
 
 
 class InnerDFragment : Fragment() {
+
+    private var dY: Float = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +31,26 @@ class InnerDFragment : Fragment() {
         waste_button.setOnClickListener {
             takeWaste()
         }
-        valve_button.setOnClickListener {
-            (activity as? InActivity)?.openValveActivity("D")
+
+        lever.setOnTouchListener { v, motionEvent ->
+            if (motionEvent.action == MotionEvent.ACTION_DOWN) {
+                dY = v.y - motionEvent.rawY
+            }
+            if (motionEvent.action == MotionEvent.ACTION_MOVE && motionEvent.rawY + dY < v.y) {
+                if (motionEvent.rawY + dY > 500) {
+                    v.animate().y(motionEvent.rawY + dY).setDuration(0).start()
+                } else {
+                    (activity as? InActivity)?.sendLeverUp()
+                }
+            }
+            if (motionEvent.action == MotionEvent.ACTION_UP) {
+                activity.runOnUiThread {
+                    v.animate().translationY(0f).setDuration(200).withEndAction {
+                        (activity as? InActivity)?.sendLeverDown()
+                    }.start()
+                }
+            }
+            return@setOnTouchListener true
         }
     }
 
