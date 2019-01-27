@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#aaaaaa"
     tools:context=".infragments.InnerBFragment">
 
-    <ImageButton
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background_toilet"/>
+
+    <ImageView
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="60dp"
         android:id="@+id/waste_button"
+        android:src="@drawable/reuma_btn"
         android:layout_width="100dp"
         android:layout_height="100dp" />
 
-</FrameLayout>
+</RelativeLayout>

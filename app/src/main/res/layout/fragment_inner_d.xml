@@ -3,23 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#22e"
+    android:background="@drawable/background_reactor"
     android:id="@+id/root"
     tools:context=".infragments.InnerDFragment">
 
    <ImageButton
        android:id="@+id/waste_button"
-       android:layout_width="100dp"
+       android:layout_centerHorizontal="true"
+       android:layout_centerVertical="true"
+       android:layout_width="match_parent"
+       android:alpha="0"
        android:layout_height="100dp" />
 
 
    <ImageView
        android:id="@+id/lever"
-       android:layout_width="40dp"
-       android:layout_height="40dp"
-       android:background="@color/colorPrimaryDark"
-       android:layout_centerHorizontal="true"
-       android:layout_marginTop="300dp"
+       android:src="@drawable/tenda_out"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="-440dp"
        />
 
 </RelativeLayout>
