@@ -112,17 +112,17 @@ class OutActivity : AppCompatActivity() {
                 if (latestdataSnapshot?.child("alienBz")?.value == null) {
                     fb?.spawnAlien()
                     if (fb != null) {
-                        myRef?.child("alienBz")?.setValue(0)
+                        myRef?.child("alienBz")?.setValue(0.0)
                     }
                 } else if (latestdataSnapshot?.child("alienCz")?.value == null) {
                     fc?.spawnAlien()
                     if (fc != null) {
-                        myRef?.child("alienCz")?.setValue(0)
+                        myRef?.child("alienCz")?.setValue(0.0)
                     }
                 } else if (latestdataSnapshot?.child("alienDz")?.value == null) {
                     fd?.spawnAlien()
                     if (fd != null) {
-                        myRef?.child("alienDz")?.setValue(0)
+                        myRef?.child("alienDz")?.setValue(0.0)
                     }
                 }
             }
