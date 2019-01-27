@@ -12,17 +12,9 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/radar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/radar"
-            android:layout_centerInParent="true"
-            />
-        <ImageView
             android:id="@+id/stigmaLeft1"
-            android:layout_alignTop="@id/radar"
-            android:layout_marginTop="18dp"
-            android:layout_marginLeft="80dp"
+            android:layout_marginTop="78dp"
+            android:layout_marginLeft="120dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/stigma"
@@ -31,8 +23,7 @@
 
         <ImageView
             android:id="@+id/stigmaLeft2"
-            android:layout_alignTop="@id/radar"
-            android:layout_marginTop="86dp"
+            android:layout_marginTop="116dp"
             android:layout_marginLeft="115dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +33,6 @@
 
         <ImageView
             android:id="@+id/stigmaLeft3"
-            android:layout_alignTop="@id/radar"
             android:layout_marginTop="166dp"
             android:layout_marginLeft="145dp"
             android:layout_width="wrap_content"
@@ -54,9 +44,8 @@
         <ImageView
             android:id="@+id/stigmaRight1"
             android:layout_alignParentEnd="true"
-            android:layout_alignTop="@id/radar"
-            android:layout_marginTop="14dp"
-            android:layout_marginRight="80dp"
+            android:layout_marginTop="74dp"
+            android:layout_marginRight="110dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/stigma"
@@ -66,8 +55,7 @@
         <ImageView
             android:id="@+id/stigmaRight2"
             android:layout_alignParentEnd="true"
-            android:layout_alignTop="@id/radar"
-            android:layout_marginTop="94dp"
+            android:layout_marginTop="114dp"
             android:layout_marginRight="120dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,7 +66,6 @@
         <ImageView
             android:id="@+id/stigmaRight3"
             android:layout_alignParentEnd="true"
-            android:layout_alignTop="@id/radar"
             android:layout_marginTop="160dp"
             android:layout_marginRight="138dp"
             android:layout_width="wrap_content"
@@ -89,9 +76,8 @@
 
         <ImageView
             android:id="@+id/stigmaMid1"
-            android:layout_alignTop="@id/radar"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="23dp"
+            android:layout_marginTop="83dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/stigma"
@@ -100,9 +86,8 @@
 
         <ImageView
             android:id="@+id/stigmaMid2"
-            android:layout_alignTop="@id/radar"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="110dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/stigma"
@@ -111,7 +96,6 @@
 
         <ImageView
             android:id="@+id/stigmaMid3"
-            android:layout_alignTop="@id/radar"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="160dp"
             android:layout_width="wrap_content"
@@ -122,7 +106,6 @@
 
         <ImageView
             android:id="@+id/stigmaEnd"
-            android:layout_alignBottom="@id/radar"
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -134,6 +117,8 @@
         <ImageButton
             android:id="@+id/cannon_button"
             android:layout_width="100dp"
+            android:alpha="0"
+            android:layout_marginBottom="150dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_height="100dp"

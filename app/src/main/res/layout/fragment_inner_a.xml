@@ -8,32 +8,43 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:background="@drawable/bathroom_background"
         android:layout_height="match_parent">
 
-        <Button
+        <ImageView
+            android:src="@drawable/stroufigka"
             android:id="@+id/valve_1"
-            android:layout_centerVertical="true"
+            android:layout_marginTop="400dp"
+            android:layout_marginStart="53dp"
             android:layout_width="100dp"
             android:layout_height="100dp" />
 
-        <Button
+        <ImageView
+            android:src="@drawable/stroufigka"
             android:id="@+id/valve_2"
             android:layout_toEndOf="@+id/valve_1"
             android:layout_alignParentBottom="true"
+            android:layout_marginBottom="70dp"
             android:layout_width="100dp"
+            android:layout_marginStart="-30dp"
             android:layout_height="100dp" />
 
-        <Button
+        <ImageView
+            android:src="@drawable/stroufigka"
             android:id="@+id/valve_3"
-            android:layout_centerVertical="true"
+            android:layout_marginTop="400dp"
             android:layout_toEndOf="@id/valve_2"
+            android:layout_marginStart="-30dp"
             android:layout_width="100dp"
             android:layout_height="100dp" />
 
-        <Button
+        <ImageView
+            android:src="@drawable/stroufigka"
             android:id="@+id/valve_4"
             android:layout_alignParentBottom="true"
+            android:layout_marginBottom="70dp"
             android:layout_alignParentEnd="true"
+            android:layout_marginEnd="45dp"
             android:layout_width="100dp"
             android:layout_height="100dp" />
     </RelativeLayout>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.agilie.circularpicker.presenter.CircularPickerContract
 import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Constants.Constants.maxLapForValves
 import com.sliceofpizza.homegame.activities.InActivity
@@ -36,8 +37,8 @@ class InnerDFragment : Fragment() {
             if (motionEvent.action == MotionEvent.ACTION_DOWN) {
                 dY = v.y - motionEvent.rawY
             }
-            if (motionEvent.action == MotionEvent.ACTION_MOVE && motionEvent.rawY + dY < v.y) {
-                if (motionEvent.rawY + dY > 500) {
+            if (motionEvent.action == MotionEvent.ACTION_MOVE) {
+                if (motionEvent.rawY + dY > -1600) {
                     v.animate().y(motionEvent.rawY + dY).setDuration(0).start()
                 } else {
                     (activity as? InActivity)?.sendLeverUp()
