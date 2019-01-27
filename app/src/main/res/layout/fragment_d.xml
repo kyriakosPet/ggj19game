@@ -43,4 +43,12 @@
         android:layout_height="match_parent"
         android:background="@drawable/outside_d"/>
 
+    <ImageView
+        android:id="@+id/water"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/water" />
+
 </RelativeLayout>

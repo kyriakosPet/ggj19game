@@ -37,4 +37,13 @@
         android:layout_height="wrap_content"
         android:src="@drawable/tenda_out"/>
 
+
+    <ImageView
+        android:id="@+id/water"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/water" />
+
 </RelativeLayout>
