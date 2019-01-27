@@ -68,6 +68,13 @@ private var dY = 0.0f
         }else {
             resetTenda(true)
         }
+
+        if (latestdataSnapshot!!.hasChild("valveA") && latestdataSnapshot.child("valveA").value as Boolean) {
+            water.visibility = View.GONE
+        } else {
+            water.visibility = View.VISIBLE
+        }
+
     }
 
 

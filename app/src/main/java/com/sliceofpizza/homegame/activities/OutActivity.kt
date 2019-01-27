@@ -22,6 +22,7 @@ import java.util.*
 import android.R.attr.start
 import android.support.v4.view.ViewCompat.setTranslationX
 import android.animation.ValueAnimator
+import kotlin.random.Random
 
 
 class OutActivity : AppCompatActivity() {
@@ -135,13 +136,30 @@ class OutActivity : AppCompatActivity() {
 
             va.cancel()
             va = ValueAnimator.ofInt(oxygen, 0)
-            mDuration = oxygen*500 //in millis
+            mDuration = oxygen * 500 //in millis
             va.duration = mDuration.toLong()
             va.addUpdateListener { animation ->
                 progress_baroxygen.progress = animation.animatedValue as Int
-                oxygen= progress_baroxygen.progress
+                oxygen = progress_baroxygen.progress
+
+                randomWater()
             }
             va.start()
+        }
+    }
+
+    private fun randomWater() {
+        if (Random.nextInt(0, 1000) == 10) {
+            myRef?.child("valveA")?.setValue(false)
+        }
+        if (Random.nextInt(0, 1000) == 10) {
+            myRef?.child("valveB")?.setValue(false)
+        }
+        if (Random.nextInt(0, 1000) == 10) {
+            myRef?.child("valveC")?.setValue(false)
+        }
+        if (Random.nextInt(0, 1000) == 1) {
+            myRef?.child("valveD")?.setValue(false)
         }
     }
 

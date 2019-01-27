@@ -25,6 +25,11 @@ class DFragment : AlienFragment() {
     }
 
     fun setData(latestdataSnapshot: DataSnapshot?) {
+        if (latestdataSnapshot!!.hasChild("valveD") && latestdataSnapshot.child("valveD").value as Boolean) {
+            water.visibility = View.GONE
+        } else {
+            water.visibility = View.VISIBLE
+        }
 
     }
 
@@ -40,16 +45,16 @@ class DFragment : AlienFragment() {
             if (AlienHelper.isViewOverlapping(al, hitarea)) {
                 Log.d("aaaaa", "HITTTTTT")
                 al?.clearAnimation()
-                al?.visibility=View.GONE
+                al?.visibility = View.GONE
                 (activity as OutActivity).nullVlue("alienDz")
 
                 explotion.visibility = View.VISIBLE
-                explotion.x = al.x-300
-                explotion.y = al.y-300
+                explotion.x = al.x - 300
+                explotion.y = al.y - 300
                 Handler().postDelayed({
                     explotion.visibility = View.GONE
                 }, 500)
-                al?.x=5000f
+                al?.x = 5000f
 
             } else {
                 Log.d("aaaaa", "NOOOOT HITTTTTT")

@@ -25,7 +25,11 @@ class BFragment : AlienFragment() {
     }
 
     fun setData(latestdataSnapshot: DataSnapshot?) {
-
+        if (latestdataSnapshot!!.hasChild("valveB") && latestdataSnapshot.child("valveB").value as Boolean) {
+            water.visibility = View.GONE
+        } else {
+            water.visibility = View.VISIBLE
+        }
     }
 
     fun shoot() {
