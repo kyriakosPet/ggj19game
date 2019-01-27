@@ -26,8 +26,55 @@ class InnerCFragment : Fragment() {
         cannon_button.setOnClickListener {
             pressCannonButton()
         }
+
+        (activity as InActivity)
     }
 
+    fun updateRadar( position : Int , value : Float?){
+       if ( value == null) {
+           when (position) {
+               0 -> {
+                   stigmaLeft.visibility = View.GONE
+                   stigmaLeft.translationY = 0f
+                   stigmaLeft.translationX = 0f
+               }
+               1 -> {
+                   stigmaMid.visibility = View.GONE
+                   stigmaMid.translationX = 0f
+                   stigmaMid.translationY = 0f
+               }
+               2 -> {
+                   stigmaRight.visibility = View.GONE
+                   stigmaRight.translationX = 0f
+                   stigmaRight.translationY = 0f
+               }
+           }
+       }else{
+           when ( position ) {
+               0 -> {
+                   val x = (stigmaEnd.x - stigmaLeft.x) * value
+                   val y = (stigmaEnd.y - stigmaEnd.y) * value
+                   stigmaLeft.translationX = x
+                   stigmaLeft.translationY = y
+
+               }
+               1 -> {
+                   val y = (stigmaEnd.y - stigmaEnd.y) * value
+                   stigmaLeft.translationY = y
+
+               }
+               2 -> {
+                   val x = (stigmaLeft.x - stigmaEnd.x) * value
+                   val y = (stigmaEnd.y - stigmaEnd.y) * value
+                   stigmaLeft.translationX = x
+                   stigmaLeft.translationY = y
+               }
+
+           }
+       }
+
+
+    }
     private fun pressCannonButton() {
         (activity as? InActivity)?.shootCannon()
     }

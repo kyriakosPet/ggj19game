@@ -146,7 +146,6 @@ class OutActivity : AppCompatActivity() {
         myRef?.child(vv)?.setValue(prog)
     }
 
-
     inner class ViewPagerAdapter(fm: FragmentManager, val pages: Int) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment? {
