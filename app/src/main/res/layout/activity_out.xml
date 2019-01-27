@@ -27,4 +27,11 @@
         app:progressColor="@android:color/holo_blue_dark"/>
 
 
+    <View
+        android:id="@+id/hited"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:background="@android:color/holo_red_dark"/>
+
 </RelativeLayout>

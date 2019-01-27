@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.util.Log
+import android.view.View
 
 import com.sliceofpizza.homegame.R
 import com.sliceofpizza.homegame.outfragments.*
@@ -79,11 +80,14 @@ class OutActivity : AppCompatActivity() {
 
 
     fun allienHitMe() {
+        hited.animate().alpha(0.7f)
         myRef?.child("health")?.setValue(progress_bar.progress - 10)
+        hited.animate().alpha(0f).startDelay = 1000L
     }
 
 
     fun getData(): DataSnapshot? {
+
         return latestdataSnapshot
     }
 
