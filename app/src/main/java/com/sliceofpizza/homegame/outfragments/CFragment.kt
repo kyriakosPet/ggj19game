@@ -61,6 +61,15 @@ class CFragment : AlienFragment() {
                 al?.clearAnimation()
                 al?.visibility=View.GONE
                 (activity as OutActivity).nullVlue("alienCz")
+
+                explotion.visibility = View.VISIBLE
+                explotion.x = al.x-300
+                explotion.y = al.y-300
+                Handler().postDelayed({
+                    explotion.visibility = View.GONE
+                }, 500)
+                al?.x=5000f
+
             } else {
                 Log.d("aaaaa", "NOOOOT HITTTTTT")
             }

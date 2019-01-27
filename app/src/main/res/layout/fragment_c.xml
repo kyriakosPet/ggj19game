@@ -12,6 +12,13 @@
         android:layout_height="100dp"
         android:alpha="0"
         android:background="@drawable/alien"/>
+
+    <ImageView
+        android:id="@+id/explotion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:src="@drawable/explotion"/>
     <View
         android:id="@+id/laser"
         android:layout_width="15dp"

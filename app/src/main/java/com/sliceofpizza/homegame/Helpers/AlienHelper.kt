@@ -101,7 +101,7 @@ class AlienHelper {
             var csx = secondView.x + secondView.width / 2
             var csy = secondView.y + secondView.height / 2
 
-            return (Math.abs(cfx-csx) < 400 && Math.abs(cfy - csy) < 400)
+            return (Math.abs(cfx-csx) < 300 && Math.abs(cfy - csy) < 300)
         }
 
 
