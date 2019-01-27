@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.AlienHelper
 import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Coordinate
 import com.google.firebase.database.DataSnapshot
 
@@ -43,7 +44,6 @@ class CFragment : AlienFragment() {
     }
 
 
-
     fun setData(latestdataSnapshot: DataSnapshot?) {
 
     }
@@ -53,6 +53,15 @@ class CFragment : AlienFragment() {
         Handler().postDelayed({
             laser.visibility = View.GONE
         }, 1000)
+
+        if (alien != null) {
+            if (AlienHelper.isViewOverlapping(alien!!, hitarea)) {
+                Log.d("aaaaa", "HITTTTTT")
+                destroyAlien()
+            } else {
+                Log.d("aaaaa", "NOOOOT HITTTTTT")
+            }
+        }
     }
 
 }

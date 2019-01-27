@@ -47,24 +47,23 @@ open class AlienFragment : Fragment() {
     }
 
     private fun nextWayPoint(waypointNumer: Int) {
-        var prog = (waypointNumer.toFloat())/waypoints.size.toFloat()
-        sendZ( prog)
+        var prog = (waypointNumer.toFloat()) / waypoints.size.toFloat()
+        sendZ(prog)
 
         if (waypointNumer >= waypoints.size) {
             alienHitMe()
             return
         }
 
-        alien?.animate()!!.x(waypoints[waypointNumer].x.toScreenWidth).y(waypoints[waypointNumer].y.toScreenHeight).scaleY(startScale + waypointNumer * scaleStep).scaleX(startScale + waypointNumer * scaleStep).alpha(1f).setDuration(3000).withEndAction {
+        alien?.animate()!!.x(waypoints[waypointNumer].x.toScreenWidth).y(waypoints[waypointNumer].y.toScreenHeight).scaleY(startScale + waypointNumer * scaleStep).scaleX(startScale + waypointNumer * scaleStep).alpha(1f).setDuration(4000).withEndAction {
             this.waypointNumer++
             nextWayPoint(this.waypointNumer)
         }.start()
     }
 
 
-
     private fun alienHitMe() {
-        Log.d("eeeeee","hit me ")
+        Log.d("eeeeee", "hit me ")
 
         alien?.animate()!!.y(3000f).setDuration(1000).withEndAction {
 
@@ -77,18 +76,35 @@ open class AlienFragment : Fragment() {
             if (this is DFragment) {
                 (activity as OutActivity).nullVlue("alienDz")
             }
+
+            (activity as OutActivity).allienHitMe()
         }
     }
 
     private fun sendZ(prog: Float) {
         if (this is BFragment) {
-            (activity as OutActivity).sentZ("alienBz",prog)
+            (activity as OutActivity).sentZ("alienBz", prog)
         }
         if (this is CFragment) {
-            (activity as OutActivity).sentZ("alienCz",prog)
+            (activity as OutActivity).sentZ("alienCz", prog)
         }
         if (this is DFragment) {
-            (activity as OutActivity).sentZ("alienDz",prog)
+            (activity as OutActivity).sentZ("alienDz", prog)
+        }
+    }
+
+     fun destroyAlien() {
+        alien?.clearAnimation()
+        alien?.alpha=0f
+
+        if (this is BFragment) {
+            (activity as OutActivity).nullVlue("alienBz")
+        }
+        if (this is CFragment) {
+            (activity as OutActivity).nullVlue("alienCz")
+        }
+        if (this is DFragment) {
+            (activity as OutActivity).nullVlue("alienDz")
         }
     }
 
@@ -100,5 +116,5 @@ private val Int.toScreenWidth: Float
     }
 private val Int.toScreenHeight: Float
     get() {
-        return this / 100.toFloat() * AppObject.getScreenDimensions().y*0.7f
+        return this / 100.toFloat() * AppObject.getScreenDimensions().y * 0.7f
     }
