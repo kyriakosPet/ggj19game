@@ -170,17 +170,17 @@ class InActivity : AppCompatActivity() {
                 if(dataSnapshot.hasChild("alienBz") ) {
                     Log.d("eee","Alien Bz : " + dataSnapshot.child("alienBz"))
                     if ( cFrag != null )
-                        cFrag!!.updateRadar(0,dataSnapshot.child("alienBz").value as Float)
+                        cFrag!!.updateRadar(0,dataSnapshot.child("alienBz").value as Double)
                 }
                 if(dataSnapshot.hasChild("alienCz")) {
                     Log.d("eee","Alien Cz : " + dataSnapshot.child("alienCz"))
                     if ( cFrag != null )
-                        cFrag!!.updateRadar(0,dataSnapshot.child("alienCz").value as Float)
+                        cFrag!!.updateRadar(0,dataSnapshot.child("alienCz").value as Double)
                 }
                 if(dataSnapshot.hasChild("alienDz")) {
                     Log.d("eee","Alien Dz : " + dataSnapshot.child("alienDz"))
                     if ( cFrag != null )
-                        cFrag!!.updateRadar(0,dataSnapshot.child("alienDz").value as Float)
+                        cFrag!!.updateRadar(0,dataSnapshot.child("alienDz").value as Double)
                 }
 
             }
