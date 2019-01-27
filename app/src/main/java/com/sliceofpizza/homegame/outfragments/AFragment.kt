@@ -50,19 +50,16 @@ private var dY = 0.0f
         if (latestdataSnapshot.hasChild("leverUp") && latestdataSnapshot.child("leverUp").value == true) {
             //can drag lever
             tenda.alpha = 1f
+            tenda.animate().y(-1400f).setDuration(0).start()
             tenda.setOnTouchListener { v, motionEvent ->
                 if (motionEvent.action == MotionEvent.ACTION_DOWN) {
                     dY = v.y - motionEvent.rawY
                 }
                 if (motionEvent.action == MotionEvent.ACTION_MOVE) {
-                    if (motionEvent.rawY + dY > 500) {
-
-                    } else {
-//                        resetTenda()
-                    }
-                    v.animate().y(motionEvent.rawY + dY).setDuration(0).start()
-                    if (v.translationY == 0f) {
+                    if (v.y >= 0f) {
                         (activity as? OutActivity)?.healthUp()
+                    }else {
+                        v.animate().y(motionEvent.rawY + dY).setDuration(0).start()
                     }
                 }
                 if (motionEvent.action == MotionEvent.ACTION_UP) {
@@ -71,14 +68,14 @@ private var dY = 0.0f
                 return@setOnTouchListener true
             }
         }else {
-//            resetTenda(true)
+            resetTenda(true)
         }
     }
 
 
     private fun resetTenda(clearTenda: Boolean = false) {
         activity.runOnUiThread {
-            tenda.animate().translationY(-550f).setDuration(200).withEndAction {
+            tenda.animate().translationY(-1400f).setDuration(200).withEndAction {
                 if (clearTenda)
                 tenda.alpha = 0f
 
