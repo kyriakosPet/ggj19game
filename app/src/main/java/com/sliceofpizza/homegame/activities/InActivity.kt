@@ -36,6 +36,8 @@ class InActivity : AppCompatActivity() {
     var myRef: DatabaseReference? = null
     var latestdataSnapshot: DataSnapshot?=null
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_in)
