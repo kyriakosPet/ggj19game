@@ -86,6 +86,10 @@ class OutActivity : AppCompatActivity() {
         myRef?.child("health")?.setValue(progress_bar.progress - 10)
     }
 
+    fun healthUp() {
+        myRef?.child("health")?.setValue(progress_bar.progress + 20)
+    }
+
 
     fun getData(): DataSnapshot? {
 

@@ -31,7 +31,7 @@
 
     <ImageView
         android:id="@+id/tenda"
-        android:alpha="0"
+        android:alpha="1"
         android:translationY="-550dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

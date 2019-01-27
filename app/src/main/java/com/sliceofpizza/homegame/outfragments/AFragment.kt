@@ -13,6 +13,7 @@ import com.google.firebase.database.DataSnapshot
 
 import com.sliceofpizza.homegame.R
 import com.sliceofpizza.homegame.activities.InActivity
+import com.sliceofpizza.homegame.activities.OutActivity
 import com.sliceofpizza.homegame.activities.Puzzle
 import kotlinx.android.synthetic.main.fragment_a.*
 
@@ -57,9 +58,12 @@ private var dY = 0.0f
                     if (motionEvent.rawY + dY > 500) {
 
                     } else {
-                        resetTenda()
+//                        resetTenda()
                     }
                     v.animate().y(motionEvent.rawY + dY).setDuration(0).start()
+                    if (v.translationY == 0f) {
+                        (activity as? OutActivity)?.healthUp()
+                    }
                 }
                 if (motionEvent.action == MotionEvent.ACTION_UP) {
                     resetTenda()
@@ -67,7 +71,7 @@ private var dY = 0.0f
                 return@setOnTouchListener true
             }
         }else {
-            resetTenda(true)
+//            resetTenda(true)
         }
     }
 
