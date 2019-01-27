@@ -30,7 +30,7 @@ class InnerCFragment : Fragment() {
         (activity as InActivity)
     }
 
-    fun updateRadar( position : Int , value : Float?){
+    public fun updateRadar( position : Int , value : Float?){
        if ( value == null) {
            when (position) {
                0 -> {

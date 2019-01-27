@@ -35,7 +35,7 @@ class InActivity : AppCompatActivity() {
     var database: FirebaseDatabase? = null
     var myRef: DatabaseReference? = null
     var latestdataSnapshot: DataSnapshot?=null
-
+    var cFrag : InnerCFragment? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -167,6 +167,21 @@ class InActivity : AppCompatActivity() {
                         black_out_view.animate().alpha(0f).setDuration(300).start()
                     }
                 }
+                if(dataSnapshot.hasChild("alienBz") ) {
+                    Log.d("eee","Alien Bz : " + dataSnapshot.child("alienBz"))
+                    if ( cFrag != null )
+                        cFrag!!.updateRadar(0,dataSnapshot.child("alienBz").value as Float)
+                }
+                if(dataSnapshot.hasChild("alienCz")) {
+                    Log.d("eee","Alien Cz : " + dataSnapshot.child("alienCz"))
+                    if ( cFrag != null )
+                        cFrag!!.updateRadar(0,dataSnapshot.child("alienCz").value as Float)
+                }
+                if(dataSnapshot.hasChild("alienDz")) {
+                    Log.d("eee","Alien Dz : " + dataSnapshot.child("alienDz"))
+                    if ( cFrag != null )
+                        cFrag!!.updateRadar(0,dataSnapshot.child("alienDz").value as Float)
+                }
 
             }
 
@@ -176,7 +191,7 @@ class InActivity : AppCompatActivity() {
         })
     }
 
-    private class ViewPagerAdapter(fm: FragmentManager, val pages: Int) : FragmentPagerAdapter(fm) {
+    inner class ViewPagerAdapter(fm: FragmentManager, val pages: Int) : FragmentPagerAdapter(fm) {
 
         private var a: Fragment? = null
         private var b: Fragment? = null
@@ -204,6 +219,7 @@ class InActivity : AppCompatActivity() {
                 2 -> {
                     if (c == null) {
                         c = InnerCFragment()
+                        cFrag = c as? InnerCFragment
                         c
                     }else {
                         c
