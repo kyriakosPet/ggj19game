@@ -24,8 +24,6 @@ import android.support.v4.view.ViewCompat.setTranslationX
 import android.animation.ValueAnimator
 
 
-
-
 class OutActivity : AppCompatActivity() {
 
 
@@ -41,7 +39,7 @@ class OutActivity : AppCompatActivity() {
     var fd: DFragment? = null
     var fe: EFragment? = null
 
-    var oxygen= 100
+    var oxygen = 100
 
 
     private fun changeValue() {
@@ -111,14 +109,35 @@ class OutActivity : AppCompatActivity() {
         setUpVlueAnimatorOxygen()
     }
 
-    private fun setUpVlueAnimatorOxygen() {
-        val va = ValueAnimator.ofInt(100, 0)
-        val mDuration = 40000 //in millis
-        va.duration = mDuration.toLong()
-        va.addUpdateListener { animation ->
-          progress_baroxygen.progress= animation.animatedValue as Int
+
+    var va = ValueAnimator.ofInt(oxygen, 0)
+    var mDuration = 40000 //in millis
+    var touchtimer = 100
+    fun oxyplusplus() {
+        if (touchtimer < 50) {
+            touchtimer++
+        } else {
+            touchtimer = 0
+
+            oxygen++
+
+            if (oxygen > 100) {
+                oxygen = 100
+            }
+
+            va.cancel()
+            va = ValueAnimator.ofInt(oxygen, 0)
+            mDuration = 40000 //in millis
+            va.duration = mDuration.toLong()
+            va.addUpdateListener { animation ->
+                progress_baroxygen.progress = animation.animatedValue as Int
+            }
+            va.start()
         }
-        va.start()
+    }
+
+    private fun setUpVlueAnimatorOxygen() {
+        oxyplusplus()
     }
 
 
@@ -167,7 +186,7 @@ class OutActivity : AppCompatActivity() {
     }
 
     fun sentZ(vv: String, prog: Float) {
-        myRef?.child(vv)?.setValue(prog + 0.01f )
+        myRef?.child(vv)?.setValue(prog + 0.01f)
     }
 
     inner class ViewPagerAdapter(fm: FragmentManager, val pages: Int) : FragmentPagerAdapter(fm) {

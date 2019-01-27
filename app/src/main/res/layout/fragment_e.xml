@@ -9,15 +9,25 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/outside_e"/>
+        android:background="@drawable/outside_e" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
         android:scaleX="0.7"
         android:scaleY="0.7"
-        android:src="@drawable/oxygen"/>
+        android:src="@drawable/oxygen" />
 
+
+    <ImageView
+        android:id="@+id/oxybtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="150dp"
+        android:src="@drawable/oxygen_btn" />
 </RelativeLayout>
