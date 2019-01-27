@@ -140,4 +140,14 @@
 
         </LinearLayout>
     </RelativeLayout>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignBottom="@id/puzzleArea"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/puzzle_straight"
+        android:layout_marginLeft="-40dp"
+        />
+
 </RelativeLayout>
