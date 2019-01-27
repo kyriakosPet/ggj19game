@@ -80,9 +80,10 @@ class OutActivity : AppCompatActivity() {
 
 
     fun allienHitMe() {
-        hited.animate().alpha(0.7f)
+        hited.animate().alpha(0.7f).withEndAction {
+            hited.animate().alpha(0f)
+        }
         myRef?.child("health")?.setValue(progress_bar.progress - 10)
-        hited.animate().alpha(0f).startDelay = 1000L
     }
 
 
