@@ -50,14 +50,14 @@ class Puzzle : AppCompatActivity() {
 
     fun checkForWin(){
         if ( puzzle1.rotation == 0f &&
-                puzzle2.rotation == 0f &&
+                puzzle2.rotation == 90f &&
                 puzzle3.rotation == 0f &&
-                puzzle4.rotation == 0f &&
-                puzzle5.rotation == 0f &&
-                puzzle6.rotation == 0f &&
-                puzzle7.rotation == 0f &&
-                puzzle8.rotation == 0f &&
-                puzzle9.rotation == 0f
+                (puzzle4.rotation == 0f || puzzle4.rotation == 180f) &&
+                (puzzle5.rotation == 0f || puzzle5.rotation == 180f) &&
+                (puzzle6.rotation == 0f || puzzle6.rotation == 180f) &&
+                puzzle7.rotation == 180f &&
+                puzzle8.rotation == 2700f &&
+                puzzle9.rotation == 180f
                 ){
             winAndClose()
         }
