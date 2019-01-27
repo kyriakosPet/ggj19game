@@ -14,8 +14,6 @@ import com.google.firebase.database.DataSnapshot
 
 import com.sliceofpizza.homegame.R
 import kotlinx.android.synthetic.main.fragment_b.*
-import java.util.*
-import kotlin.concurrent.schedule
 
 class BFragment : AlienFragment() {
 
@@ -38,11 +36,14 @@ class BFragment : AlienFragment() {
             laser.visibility = View.GONE
         }, 1000)
 
-        if (AlienHelper.isViewOverlapping(alien!!, hitarea)) {
-            Log.d("aaaaa", "HITTTTTT")
-            destroyAlien()
-        } else {
-            Log.d("aaaaa", "NOOOOT HITTTTTT")
+
+        if (alien != null) {
+            if (AlienHelper.isViewOverlapping(alien!!, hitarea)) {
+                Log.d("aaaaa", "HITTTTTT")
+                destroyAlien()
+            } else {
+                Log.d("aaaaa", "NOOOOT HITTTTTT")
+            }
         }
 
     }

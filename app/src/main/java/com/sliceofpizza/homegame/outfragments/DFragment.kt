@@ -36,11 +36,14 @@ class DFragment : AlienFragment() {
             laser.visibility = View.GONE
         }, 1000)
 
-        if (AlienHelper.isViewOverlapping(alien!!, hitarea)) {
-            Log.d("aaaaa", "HITTTTTT")
-            destroyAlien()
-        } else {
-            Log.d("aaaaa", "NOOOOT HITTTTTT")
+
+        if (alien != null) {
+            if (AlienHelper.isViewOverlapping(alien!!, hitarea)) {
+                Log.d("aaaaa", "HITTTTTT")
+                destroyAlien()
+            } else {
+                Log.d("aaaaa", "NOOOOT HITTTTTT")
+            }
         }
 
     }
