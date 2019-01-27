@@ -29,4 +29,12 @@
         android:layout_height="wrap_content"
         android:src="@drawable/reuma_btn" />
 
+    <ImageView
+        android:id="@+id/tenda"
+        android:alpha="0"
+        android:translationY="-550dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/tenda_out"/>
+
 </RelativeLayout>

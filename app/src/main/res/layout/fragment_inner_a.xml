@@ -11,8 +11,29 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/valve_button"
-            android:layout_centerInParent="true"
+            android:id="@+id/valve_1"
+            android:layout_centerVertical="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <Button
+            android:id="@+id/valve_2"
+            android:layout_toEndOf="@+id/valve_1"
+            android:layout_alignParentBottom="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <Button
+            android:id="@+id/valve_3"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/valve_2"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <Button
+            android:id="@+id/valve_4"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
             android:layout_width="100dp"
             android:layout_height="100dp" />
     </RelativeLayout>

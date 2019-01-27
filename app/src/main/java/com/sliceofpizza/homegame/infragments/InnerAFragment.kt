@@ -23,7 +23,19 @@ class InnerAFragment : Fragment()  {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        valve_button.setOnClickListener {
+        valve_1.setOnClickListener {
+            (activity as? InActivity)?.openValveActivity("A")
+        }
+
+        valve_2.setOnClickListener {
+            (activity as? InActivity)?.openValveActivity("B")
+        }
+
+        valve_3.setOnClickListener {
+            (activity as? InActivity)?.openValveActivity("C")
+        }
+
+        valve_4.setOnClickListener {
             (activity as? InActivity)?.openValveActivity("D")
         }
     }
