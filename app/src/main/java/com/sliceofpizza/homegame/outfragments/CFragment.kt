@@ -54,10 +54,13 @@ class CFragment : AlienFragment() {
             laser.visibility = View.GONE
         }, 1000)
 
-        if (alien != null) {
-            if (AlienHelper.isViewOverlapping(alien!!, hitarea)) {
+        var al = view?.findViewById<View>(R.id.alien)
+        if (al != null) {
+            if (AlienHelper.isViewOverlapping(al, hitarea)) {
                 Log.d("aaaaa", "HITTTTTT")
-                destroyAlien()
+                al?.clearAnimation()
+                al?.visibility=View.GONE
+                (activity as OutActivity).nullVlue("alienCz")
             } else {
                 Log.d("aaaaa", "NOOOOT HITTTTTT")
             }

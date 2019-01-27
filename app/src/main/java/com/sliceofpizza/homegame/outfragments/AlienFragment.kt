@@ -42,6 +42,7 @@ open class AlienFragment : Fragment() {
             alien?.scaleX = startScale
             alien?.scaleY = startScale
 
+            alien?.visibility = View.VISIBLE
             nextWayPoint(waypointNumer)
         }
     }
@@ -56,8 +57,10 @@ open class AlienFragment : Fragment() {
         }
 
         alien?.animate()!!.x(waypoints[waypointNumer].x.toScreenWidth).y(waypoints[waypointNumer].y.toScreenHeight).scaleY(startScale + waypointNumer * scaleStep).scaleX(startScale + waypointNumer * scaleStep).alpha(1f).setDuration(4000).withEndAction {
-            this.waypointNumer++
-            nextWayPoint(this.waypointNumer)
+           if( alien?.visibility==View.VISIBLE ) {
+               this.waypointNumer++
+               nextWayPoint(this.waypointNumer)
+           }
         }.start()
     }
 
@@ -93,19 +96,17 @@ open class AlienFragment : Fragment() {
         }
     }
 
-     fun destroyAlien() {
-        alien?.clearAnimation()
-        alien?.alpha=0f
-
-        if (this is BFragment) {
-            (activity as OutActivity).nullVlue("alienBz")
-        }
-        if (this is CFragment) {
-            (activity as OutActivity).nullVlue("alienCz")
-        }
-        if (this is DFragment) {
-            (activity as OutActivity).nullVlue("alienDz")
-        }
+    fun destroyAlien(al: View) {
+//
+//        if (this is BFragment) {
+//            (activity as OutActivity).nullVlue("alienBz")
+//        }
+//        if (this is CFragment) {
+//            (activity as OutActivity).nullVlue("alienCz")
+//        }
+//        if (this is DFragment) {
+//            (activity as OutActivity).nullVlue("alienDz")
+//        }
     }
 
 }

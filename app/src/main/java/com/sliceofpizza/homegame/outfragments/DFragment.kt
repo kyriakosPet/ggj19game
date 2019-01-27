@@ -1,10 +1,7 @@
 package com.sliceofpizza.homegame.outfragments
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +10,7 @@ import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.AlienHelper
 import com.google.firebase.database.DataSnapshot
 
 import com.sliceofpizza.homegame.R
+import com.sliceofpizza.homegame.activities.OutActivity
 import kotlinx.android.synthetic.main.fragment_d.*
 
 class DFragment : AlienFragment() {
@@ -37,10 +35,13 @@ class DFragment : AlienFragment() {
         }, 1000)
 
 
-        if (alien != null) {
-            if (AlienHelper.isViewOverlapping(alien!!, hitarea)) {
+        var al = view?.findViewById<View>(R.id.alien)
+        if (al != null) {
+            if (AlienHelper.isViewOverlapping(al, hitarea)) {
                 Log.d("aaaaa", "HITTTTTT")
-                destroyAlien()
+                al?.clearAnimation()
+                al?.visibility=View.GONE
+                (activity as OutActivity).nullVlue("alienDz")
             } else {
                 Log.d("aaaaa", "NOOOOT HITTTTTT")
             }

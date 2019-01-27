@@ -27,6 +27,6 @@ class Constants {
         var hasBlackOut = false
         const val blackOutRepeat: Long = 5000
         const val blackOutChance = 6
-        const val alienspawnRepeat: Long = 8000
+        const val alienspawnRepeat: Long =10000
     }
 }
