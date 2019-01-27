@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.sliceofpizza.homegame.R
 import com.sliceofpizza.homegame.activities.InActivity
 import kotlinx.android.synthetic.main.fragment_inner_c.*
@@ -26,55 +27,75 @@ class InnerCFragment : Fragment() {
         cannon_button.setOnClickListener {
             pressCannonButton()
         }
-
+        clearEnemy()
         (activity as InActivity)
     }
 
-    public fun updateRadar( position : Int , value : Double?){
-       if ( value == null) {
-           when (position) {
-               0 -> {
-                   stigmaLeft.visibility = View.GONE
-                   stigmaLeft.translationY = 0f
-                   stigmaLeft.translationX = 0f
-               }
-               1 -> {
-                   stigmaMid.visibility = View.GONE
-                   stigmaMid.translationX = 0f
-                   stigmaMid.translationY = 0f
-               }
-               2 -> {
-                   stigmaRight.visibility = View.GONE
-                   stigmaRight.translationX = 0f
-                   stigmaRight.translationY = 0f
-               }
-           }
-       }else{
-           when ( position ) {
-               0 -> {
-                   val x = (stigmaEnd.x - stigmaLeft.x) * value
-                   val y = (stigmaEnd.y - stigmaEnd.y) * value
-                   stigmaLeft.translationX = x.toFloat()
-                   stigmaLeft.translationY = y.toFloat()
-
-               }
-               1 -> {
-                   val y = (stigmaEnd.y - stigmaEnd.y) * value
-                   stigmaLeft.translationY = y.toFloat()
-
-               }
-               2 -> {
-                   val x = (stigmaLeft.x - stigmaEnd.x) * value
-                   val y = (stigmaEnd.y - stigmaEnd.y) * value
-                   stigmaLeft.translationX = x.toFloat()
-                   stigmaLeft.translationY = y.toFloat()
-               }
-
-           }
-       }
-
-
+    private fun clearEnemy() {
+        stigmaLeft1.alpha = 0f
+        stigmaLeft2.alpha = 0f
+        stigmaLeft3.alpha = 0f
+        stigmaMid1.alpha = 0f
+        stigmaMid2.alpha = 0f
+        stigmaMid3.alpha = 0f
+        stigmaRight1.alpha = 0f
+        stigmaRight2.alpha = 0f
+        stigmaRight3.alpha = 0f
     }
+
+    fun updateRadar( position : Int , value : Double?){
+        if (value == null) {
+            clearEnemy()
+            return
+        }
+        if(position == 0) {
+
+            if (value <= 0.33) {
+                stigmaLeft1.alpha = 1f
+                stigmaLeft2.alpha = 0f
+                stigmaLeft3.alpha = 0f
+            }else if (value > 0.33 && value <= 0.66) {
+                stigmaLeft2.alpha = 1f
+                stigmaLeft3.alpha = 0f
+                stigmaLeft1.alpha = 0f
+            }else {
+                stigmaLeft3.alpha = 1f
+                stigmaLeft2.alpha = 0f
+                stigmaLeft1.alpha = 0f
+            }
+        }
+        if (position == 1) {
+            if (value <= 0.33) {
+                stigmaMid1.alpha = 1f
+                stigmaMid2.alpha = 0f
+                stigmaMid3.alpha = 0f
+            }else if (value > 0.33 && value <= 0.66) {
+                stigmaMid2.alpha = 1f
+                stigmaMid1.alpha = 0f
+                stigmaMid3.alpha = 0f
+            }else {
+                stigmaMid3.alpha = 1f
+                stigmaMid1.alpha = 0f
+                stigmaMid2.alpha = 0f
+            }
+        }
+        else {
+            if (value <= 0.33) {
+                stigmaRight1.alpha = 1f
+                stigmaRight2.alpha = 0f
+                stigmaRight3.alpha = 0f
+            }else if (value > 0.33 && value <= 0.66) {
+                stigmaRight2.alpha = 1f
+                stigmaRight1.alpha = 0f
+                stigmaRight3.alpha = 0f
+            }else {
+                stigmaRight3.alpha = 1f
+                stigmaRight1.alpha = 0f
+                stigmaRight2.alpha = 0f
+            }
+        }
+    }
+
     private fun pressCannonButton() {
         (activity as? InActivity)?.shootCannon()
     }
