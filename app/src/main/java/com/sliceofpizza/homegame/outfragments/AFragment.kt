@@ -42,8 +42,6 @@ class AFragment : Fragment() {
 private var dY = 0.0f
     fun setData(latestdataSnapshot: DataSnapshot?) {
         if(latestdataSnapshot?.hasChild("hasElectricity")!! && (latestdataSnapshot?.child("hasElectricity").value as Boolean)){
-            reymabtn.visibility=View.GONE
-        }else{
             reymabtn.visibility=View.VISIBLE
         }
 
