@@ -30,7 +30,7 @@ class InnerCFragment : Fragment() {
         (activity as InActivity)
     }
 
-    public fun updateRadar( position : Int , value : Float?){
+    public fun updateRadar( position : Int , value : Double?){
        if ( value == null) {
            when (position) {
                0 -> {
@@ -54,20 +54,20 @@ class InnerCFragment : Fragment() {
                0 -> {
                    val x = (stigmaEnd.x - stigmaLeft.x) * value
                    val y = (stigmaEnd.y - stigmaEnd.y) * value
-                   stigmaLeft.translationX = x
-                   stigmaLeft.translationY = y
+                   stigmaLeft.translationX = x.toFloat()
+                   stigmaLeft.translationY = y.toFloat()
 
                }
                1 -> {
                    val y = (stigmaEnd.y - stigmaEnd.y) * value
-                   stigmaLeft.translationY = y
+                   stigmaLeft.translationY = y.toFloat()
 
                }
                2 -> {
                    val x = (stigmaLeft.x - stigmaEnd.x) * value
                    val y = (stigmaEnd.y - stigmaEnd.y) * value
-                   stigmaLeft.translationX = x
-                   stigmaLeft.translationY = y
+                   stigmaLeft.translationX = x.toFloat()
+                   stigmaLeft.translationY = y.toFloat()
                }
 
            }
