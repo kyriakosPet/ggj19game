@@ -61,15 +61,27 @@ class Puzzle : AppCompatActivity() {
 //                ){
 //            winAndClose()
 //        }
+        Log.d("Rotation : " , "===========================")
+
+        Log.d("Rotation : " , " puzzle  1 " + puzzle1.rotation)
+        Log.d("Rotation : " , " puzzle  2 " + puzzle2.rotation)
+        Log.d("Rotation : " , " puzzle 3 " + puzzle3.rotation)
+        Log.d("Rotation : " , " puzzle  4 " + puzzle4.rotation)
+        Log.d("Rotation : " , " puzzle  5 " + puzzle5.rotation)
+        Log.d("Rotation : " , " puzzle  6 " + puzzle6.rotation)
+        Log.d("Rotation : " , " puzzle  7 " + puzzle7.rotation)
+        Log.d("Rotation : " , " puzzle  8 " + puzzle8.rotation)
+        Log.d("Rotation : " , " puzzle  9 "  + puzzle9.rotation)
+        Log.d("Rotation : " , "===========================")
 
         if ( puzzle1.rotation == 0f &&
                 puzzle2.rotation == 90f &&
                 puzzle3.rotation == 0f &&
-                (puzzle4.rotation == 0f || puzzle4.rotation == 180f) &&
-                (puzzle5.rotation == 0f || puzzle5.rotation == 180f) &&
-                (puzzle6.rotation == 0f || puzzle6.rotation == 180f) &&
+                (puzzle4.rotation == 90f || puzzle4.rotation == 270f) &&
+                (puzzle5.rotation == 90f || puzzle5.rotation == 270f) &&
+                (puzzle6.rotation == 90f || puzzle6.rotation == 270f) &&
                 puzzle7.rotation == 180f &&
-                puzzle8.rotation == 2700f &&
+                puzzle8.rotation == 270f &&
                 puzzle9.rotation == 180f
         ){
             winAndClose()
