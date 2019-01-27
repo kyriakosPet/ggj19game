@@ -34,7 +34,7 @@ class EFragment : Fragment() {
         oxybtn.setOnTouchListener(object : View.OnTouchListener{
             override fun onTouch(p0: View?, p1: MotionEvent?): Boolean {
                 (activity as OutActivity).oxyplusplus()
-                return true
+                return false
             }
         })
     }

@@ -118,12 +118,16 @@ class OutActivity : AppCompatActivity() {
     var mDuration = 40000 //in millis
     var touchtimer = 100
     fun oxyplusplus() {
-        if (touchtimer < 50) {
+        if (false && touchtimer < 50) {
+            Log.d("eeee", "touchtimer " + touchtimer)
             touchtimer++
         } else {
+
             touchtimer = 0
 
             oxygen++
+
+            Log.d("eeee", "touchtimer mpike " + oxygen)
 
             if (oxygen > 100) {
                 oxygen = 100
@@ -131,10 +135,11 @@ class OutActivity : AppCompatActivity() {
 
             va.cancel()
             va = ValueAnimator.ofInt(oxygen, 0)
-            mDuration = 40000 //in millis
+            mDuration = oxygen*500 //in millis
             va.duration = mDuration.toLong()
             va.addUpdateListener { animation ->
                 progress_baroxygen.progress = animation.animatedValue as Int
+                oxygen= progress_baroxygen.progress
             }
             va.start()
         }
