@@ -26,6 +26,19 @@
         app:backgroundColor="@android:color/holo_orange_light"
         app:progressColor="@android:color/holo_blue_dark"/>
 
+    <com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar
+        android:id="@+id/progress_baroxygen"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        android:layout_below="@id/progress_bar"
+        android:maxHeight="12dp"
+        android:minHeight="12dp"
+        android:progress="100"
+        app:backgroundColor="@android:color/holo_orange_light"
+        app:progressColor="@android:color/holo_blue_dark"/>
 
     <View
         android:id="@+id/hited"

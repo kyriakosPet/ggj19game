@@ -19,6 +19,11 @@ import com.betheres.krsreporting.com.sliceofpizza.homegame.Helpers.Constants
 import com.google.firebase.database.*
 
 import java.util.*
+import android.R.attr.start
+import android.support.v4.view.ViewCompat.setTranslationX
+import android.animation.ValueAnimator
+
+
 
 
 class OutActivity : AppCompatActivity() {
@@ -35,6 +40,8 @@ class OutActivity : AppCompatActivity() {
     var fc: CFragment? = null
     var fd: DFragment? = null
     var fe: EFragment? = null
+
+    var oxygen= 100
 
 
     private fun changeValue() {
@@ -100,6 +107,18 @@ class OutActivity : AppCompatActivity() {
         setupPager()
         setupFirebaseDatabase()
         createAlienSpawnTimer()
+
+        setUpVlueAnimatorOxygen()
+    }
+
+    private fun setUpVlueAnimatorOxygen() {
+        val va = ValueAnimator.ofInt(100, 0)
+        val mDuration = 40000 //in millis
+        va.duration = mDuration.toLong()
+        va.addUpdateListener { animation ->
+          progress_baroxygen.progress= animation.animatedValue as Int
+        }
+        va.start()
     }
 
 
