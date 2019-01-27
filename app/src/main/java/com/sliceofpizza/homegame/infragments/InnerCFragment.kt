@@ -44,6 +44,9 @@ class InnerCFragment : Fragment() {
     }
 
     fun updateRadar( position : Int , value : Double?){
+        if (!isVisible){
+            return
+        }
         if (value == null) {
             clearEnemy()
             return
