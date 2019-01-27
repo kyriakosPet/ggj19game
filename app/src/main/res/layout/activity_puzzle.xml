@@ -26,6 +26,7 @@
                 android:orientation="horizontal">
                 <ImageView
                     android:id="@+id/puzzle1"
+                    android:src="@drawable/puzzle_curve"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:pivotX="50%p"
@@ -41,9 +42,12 @@
                     android:background="@color/colorPrimary"
                     android:pivotX="50%p"
                     android:pivotY="50%p"
+                    android:src="@drawable/puzzle_curve"
+                    android:rotation="90"
                     />
                 <ImageView
                     android:id="@+id/puzzle3"
+                    android:src="@drawable/puzzle_curve"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -61,6 +65,8 @@
                 <ImageView
                     android:id="@+id/puzzle4"
                     android:layout_width="0dp"
+                    android:src="@drawable/puzzle_straight"
+                    android:rotation="90"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@color/colorAccent"
@@ -69,6 +75,8 @@
                     />
                 <ImageView
                     android:id="@+id/puzzle5"
+                    android:src="@drawable/puzzle_straight"
+                    android:rotation="90"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -79,6 +87,8 @@
                 <ImageView
                     android:id="@+id/puzzle6"
                     android:layout_width="0dp"
+                    android:src="@drawable/puzzle_straight"
+                    android:rotation="90"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@color/colorPrimaryDark"
@@ -96,6 +106,8 @@
                 <ImageView
                     android:id="@+id/puzzle7"
                     android:layout_width="0dp"
+                    android:src="@drawable/puzzle_curve"
+                    android:rotation="180"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@color/colorAccent"
@@ -106,6 +118,8 @@
                     android:id="@+id/puzzle8"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:src="@drawable/puzzle_curve"
+                    android:rotation="270"
                     android:layout_weight="1"
                     android:background="@color/colorPrimaryDark"
                     android:pivotX="50%p"
@@ -114,6 +128,8 @@
                 <ImageView
                     android:id="@+id/puzzle9"
                     android:layout_width="0dp"
+                    android:src="@drawable/puzzle_curve"
+                    android:rotation="180"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@color/colorPrimary"
