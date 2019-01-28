@@ -7,12 +7,6 @@
     android:orientation="vertical"
     tools:context="com.sliceofpizza.homegame.MainActivity">
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="change" />
-
     <TextView
         android:id="@+id/valuetxt"
         android:layout_width="wrap_content"
@@ -31,10 +25,6 @@
         android:text="OUT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <Button
-        android:id="@+id/puzzle"
-        android:text="Puzzle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
 
 </LinearLayout>

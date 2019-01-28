@@ -7,7 +7,6 @@ import android.util.Log
 import com.google.firebase.database.*
 import com.sliceofpizza.homegame.activities.InActivity
 import com.sliceofpizza.homegame.activities.OutActivity
-import com.sliceofpizza.homegame.activities.Puzzle
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -23,9 +22,6 @@ class MainActivity : AppCompatActivity() {
 
         setupFirebaseDatabase()
 
-        btn.setOnClickListener {
-            changeValue()
-        }
 
         inbtn.setOnClickListener {
             var i =Intent(this, InActivity::class.java)
@@ -41,8 +37,23 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun changeValue() {
+    private fun resetValues() {
         myRef?.child("message")?.setValue("hello world " + System.currentTimeMillis())
+
+        myRef?.child("alienBz")?.setValue(null)
+        myRef?.child("alienCz")?.setValue(null)
+        myRef?.child("alienDz")?.setValue(null)
+
+        myRef?.child("valveA")?.setValue(true)
+        myRef?.child("valveB")?.setValue(true)
+        myRef?.child("valveC")?.setValue(true)
+        myRef?.child("valveD")?.setValue(true)
+
+        myRef?.child("health")?.setValue(100)
+        myRef?.child("hasElectricity")?.setValue(true)
+        myRef?.child("didShot")?.setValue(false)
+        myRef?.child("leverUp")?.setValue(false)
+
     }
 
 
@@ -50,6 +61,8 @@ class MainActivity : AppCompatActivity() {
         database = FirebaseDatabase.getInstance()
         myRef = database!!.getReference("gamestatus")
 
+
+        resetValues()
 
         myRef!!.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {

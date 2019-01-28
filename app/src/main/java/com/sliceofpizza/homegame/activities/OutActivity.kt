@@ -149,16 +149,16 @@ class OutActivity : AppCompatActivity() {
     }
 
     private fun randomWater() {
-        if (Random.nextInt(0, 1000) == 10) {
+        if (Random.nextInt(0, 2000) == 10) {
             myRef?.child("valveA")?.setValue(false)
         }
-        if (Random.nextInt(0, 1000) == 10) {
+        if (Random.nextInt(0, 2000) == 10) {
             myRef?.child("valveB")?.setValue(false)
         }
-        if (Random.nextInt(0, 1000) == 10) {
+        if (Random.nextInt(0, 2000) == 10) {
             myRef?.child("valveC")?.setValue(false)
         }
-        if (Random.nextInt(0, 1000) == 10) {
+        if (Random.nextInt(0, 2000) == 10) {
             myRef?.child("valveD")?.setValue(false)
         }
     }
