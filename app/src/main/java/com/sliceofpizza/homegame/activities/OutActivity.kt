@@ -158,7 +158,7 @@ class OutActivity : AppCompatActivity() {
         if (Random.nextInt(0, 1000) == 10) {
             myRef?.child("valveC")?.setValue(false)
         }
-        if (Random.nextInt(0, 1000) == 1) {
+        if (Random.nextInt(0, 1000) == 10) {
             myRef?.child("valveD")?.setValue(false)
         }
     }
